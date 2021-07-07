@@ -1,0 +1,1333 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+        const categoryVideoLoopsObj =
+        {
+            DEFAULT_VIDEO_LOOP: "https://wp.giro.com/wp-content/uploads/2021/03/Giro_Flashpoint_LandingPage_web_032921.mp4",
+            ROADCYCLING_VIDEO_LOOP: "https://wp.giro.com/wp-content/uploads/2021/07/AthletePageRoadEdit.mp4",
+            SKI_VIDEO_LOOP: "https://wp.giro.com/wp-content/uploads/2021/07/AthletePageSkiEdit.mp4",
+            CYCLOCROSS_VIDEO_LOOP: "https://wp.giro.com/wp-content/uploads/2021/07/AthletePageCyclocrossEdit.mp4",
+            GRAVEL_VIDEO_LOOP: "https://wp.giro.com/wp-content/uploads/2021/07/AthletePageGravelEdit.mp4",
+            ALPINE_VIDEO_LOOP: "https://wp.giro.com/wp-content/uploads/2021/07/AthletePageSkiRacingEdit.mp4",
+            SNOWBOARD_VIDEO_LOOP: "https://www.dropbox.com/sh/a14cqg26vbee4ar/AAB9wkLiXp-N_fUsj2Xy6IANa?dl=0&preview=AthletePageSnowboardEdit.mov",
+            MOUNTAINBIKE_VIDEO_LOOP: "https://wp.giro.com/wp-content/uploads/2021/07/AthletePageSnowboardEdit.mp4"
+        }
+
+
+        const athleteData = {
+            ROADCYCLING: [
+                {
+                    ID: 1,
+                    TYPE: "Road-Cycling",
+                    ATHLETE_NAME_HEADLIME: "BIKE EXCHANGE MEN’S TEAM",
+                    ATHLETE_HELMET: "AEROHEAD HELMET, AETHER HELMET, VANQUISH HELMET",
+                    ATHLETE_MOBILE: "AETHER HELMET",
+                    FEATURED: false,
+                    ATHLETE_GRID_IMAGE: "Bike-Exchange-Men's-Team.jpg",
+                },
+                {
+                    ID: 2,
+                    TYPE: "Road-Cycling",
+                    ATHLETE_NAME_HEADLIME: "GROUPAMA FDJ",
+                    ATHLETE_HELMET: "AEROHEAD HELMET, AETHER HELMET, VANQUISH HELMET",
+                    ATHLETE_MOBILE: "AETHER HELMET",
+                    FEATURED: false,
+                    ATHLETE_GRID_IMAGE: "Groupama-FDJ.jpg",
+                },
+                {
+                    ID: 3,
+                    TYPE: "Road-Cycling",
+                    ATHLETE_NAME_HEADLIME: "CANYON//SRAM",
+                    ATHLETE_HELMET: "AEROHEAD HELMET, AETHER HELMET, VANQUISH HELMET",
+                    ATHLETE_MOBILE: "AETHER HELMET",
+                    FEATURED: false,
+                    ATHLETE_GRID_IMAGE: "Canyon-Sram.jpg",
+                },
+                {
+                    ID: 4,
+                    TYPE: "Road-Cycling",
+                    ATHLETE_NAME_HEADLIME: "CANYON//SRAMBIKE EXCHANGE WOMEN’S TEAM",
+                    ATHLETE_HELMET: "AEROHEAD HELMET, AETHER HELMET, VANQUISH HELMET",
+                    ATHLETE_MOBILE: "AETHER HELMET",
+                    FEATURED: false,
+                    ATHLETE_GRID_IMAGE: "Bike-Exchange-Women's-Team.jpg",
+                },
+                {
+                    ID: 5,
+                    TYPE: "Road-Cycling",
+                    ATHLETE_NAME_HEADLIME: "USA TRACK TEAM",
+                    ATHLETE_HELMET: "AEROHEAD HELMET, AETHER HELMET, VANQUISH HELMET",
+                    ATHLETE_MOBILE: "AEROHEAD HELMET",
+                    FEATURED: false,
+                    ATHLETE_GRID_IMAGE: "USA-Track-Team.jpg",
+                },
+            ],
+            MOUNTAINBIKE: [
+                {
+                    ID: 6,
+                    TYPE: "Mountain-Bike",
+                    ATHLETE_NAME_HEADLIME: "Aaron Gwin",
+                    ATHLETE_HELMET: "Chamber II SHOE",
+                    ATHLETE_MOBILE: "Chamber II SHOE",
+                    FEATURED: false,
+                    ATHLETE_GRID_IMAGE: "Aaron-Gwin.jpg",
+                },
+                {
+                    ID: 7,
+                    TYPE: "Mountain-Bike",
+                    ATHLETE_NAME_HEADLIME: "Ace Hayden",
+                    ATHLETE_HELMET: "Disciple HELMET, Tyrant HELMET, MANIFEST HELMET, Riddance SHOE, BLOK MTB GOGGLE",
+                    ATHLETE_MOBILE: "MANIFEST HELMET",
+                    FEATURED: false,
+                    ATHLETE_GRID_IMAGE: "Ace-Hayden.jpg",
+                },
+                {
+                    ID: 8,
+                    TYPE: "Mountain-Bike",
+                    ATHLETE_NAME_HEADLIME: "Adolf Silva",
+                    ATHLETE_HELMET: "Disciple HELMET, Tyrant HELMET, Quarter HELMET, Riddance SHOE",
+                    ATHLETE_MOBILE: "Disciple HELMET",
+                    FEATURED: false,
+                    ATHLETE_GRID_IMAGE: "Adolf-Silva.jpg",
+                },
+                {
+                    ID: 9,
+                    TYPE: "Mountain-Bike",
+                    ATHLETE_NAME_HEADLIME: "Alex Volokhov",
+                    ATHLETE_HELMET: "Disciple HELMET, Tyrant HELMET, MANIFEST HELMET, Quarter HELMET, Blok MTB GOGGLE",
+                    ATHLETE_MOBILE: "Disciple HELMET",
+                    FEATURED: false,
+                    ATHLETE_GRID_IMAGE: "Alex-Volokhov.jpg",
+                },
+                {
+                    ID: 10,
+                    TYPE: "Mountain-Bike",
+                    ATHLETE_NAME_HEADLIME: "Brendan Howey",
+                    ATHLETE_HELMET: "Disciple HELMET, Tyrant HELMET, Quarter HELMET, Riddance SHOE",
+                    ATHLETE_MOBILE: "Disciple HELMET",
+                    FEATURED: false,
+                    ATHLETE_GRID_IMAGE: "Brendan-Howey.jpg",
+                },
+                {
+                    ID: 11,
+                    TYPE: "Mountain-Bike",
+                    ATHLETE_NAME_HEADLIME: "Carson Storch",
+                    ATHLETE_HELMET: "Disciple HELMET, Tyrant HELMET, Quarter HELMET, Riddance SHOE, Blok MTB GOGGLE",
+                    ATHLETE_MOBILE: "Disciple HELMET",
+                    FEATURED: false,
+                    ATHLETE_GRID_IMAGE: "Carson-Storch.jpg",
+                },
+                {
+                    ID: 12,
+                    TYPE: "Mountain-Bike",
+                    ATHLETE_NAME_HEADLIME: "Chris Akrigg",
+                    ATHLETE_HELMET: "MANIFEST HELMET, Tyrant HELMET, RIDDANCE SHOE",
+                    ATHLETE_MOBILE: "MANIFEST HELMET",
+                    FEATURED: false,
+                    ATHLETE_GRID_IMAGE: "Chris-Akrigg.jpg",
+                },
+                {
+                    ID: 13,
+                    TYPE: "Mountain-Bike",
+                    ATHLETE_NAME_HEADLIME: "Graham Agassiz",
+                    ATHLETE_HELMET: "Disciple HELMET, Tyrant HELMET, Manifest HELMET, Quarter HELMET, Riddance SHOE",
+                    ATHLETE_MOBILE: "Tyrant HELMET",
+                    FEATURED: false,
+                    ATHLETE_GRID_IMAGE: "Graham-Agassiz.jpg",
+                },
+                {
+                    ID: 14,
+                    TYPE: "Mountain-Bike",
+                    ATHLETE_NAME_HEADLIME: "Josh Bryceland (RatBOY)",
+                    ATHLETE_HELMET: "Disciple HELMET, Tyrant HELMET, Quarter helmet",
+                    ATHLETE_MOBILE: "Tyrant HELMET",
+                    FEATURED: true,
+                    ATHLETE_GRID_IMAGE: "Josh-Bryceland-Ratboy.jpg",
+                    MODAL_ATHLETE_PARAGRAPH: "You might not know Josh Bryceland by his real name, but chances are you know Ratboy’s style. Born in Manchester, Ratboy entered his first MTB race at the age of 10. By 17, he was the Junior World Cup Series Champion. Rat went on to take two UCI Mountain Bike World Cup victories and won the overall title in 2014. In 2016 he left DH racing behind and tackled EWS, Crankworx and Fest Series events, before starting 50:01 with Josh Loosedog Lewis, Steve Peat and Sam Dale. With this crew, Rat’s influence has only continued to grow and his playful and effortless style is as instantly recognizable as his infectious grin.",
+                    MODAL_ATHELETE_HOMETOWN: "Manchester, UK",
+                    INSTAGRAM: "@tonio_ratley",
+                    INSTAGRAMHREF: "https://www.instagram.com/tonio_ratley/",
+                    ICECREAM: "Spilfamint Swirl",
+                    YOUTUBEIMAGE: "Josh-Bryceland-Feature-Video-Slot.jpg",
+                    YOUTUBEDEFAULTID: "Josh-Bryceland-Photo-Click",
+                    YOUTUBEID: "Josh-Bryceland-Youtube-Container",
+                    YOUTUBE: "CUW9Rw3HKcM",
+                    YOUTUBELABEL: "Distant Relatives - 50to01 Visits Barcelona",
+                    MODALGRIDIMAGE1: "Josh-Bryceland-Feature-Image-1.jpg",
+                    MODALGRIDIMAGE2: "Josh-Bryceland-Feature-Image-2.jpg",
+                    MODALGRIDIMAGE3: "Josh-Bryceland-Feature-Image-3.jpg"
+                },
+                {
+                    ID: 15,
+                    TYPE: "Mountain-Bike",
+                    ATHLETE_NAME_HEADLIME: "Josh Lewis (LooseDOG)",
+                    ATHLETE_HELMET: "Disciple HELMET, Tyrant HELMET, quarter helmet, Riddance SHOE",
+                    ATHLETE_MOBILE: "Tyrant HELMET",
+                    FEATURED: true,
+                    ATHLETE_GRID_IMAGE: "Josh-Lewis-Loosedog.jpg",
+                    MODAL_ATHLETE_PARAGRAPH: "When Josh Lewis (Loosedog) first started racing downhill, the Sheffield-born, Sheffield-bred rider caught the attention of another local legend Steve Peat, who mentored Loose as he tackled the DH scene. Fast forward a few years, and Loose, together with Peat, Josh “Ratboy” Bryceland and Sam Dale, created the massively influential and always entertaining 50:01 crew. Loose still races sometimes, but it’s his joyful creativity in his riding, along with ability to ride anything and anywhere, that captures audiences and sets him and his 50:01 crew apart. Whether it’s MTB, BMX, skate, or singing, Loose is truly one of a kind.",
+                    MODAL_ATHELETE_HOMETOWN: "Sheffield, UK",
+                    INSTAGRAM: "@loosedoglewis",
+                    INSTAGRAMHREF: "https://www.instagram.com/loosedoglewis/",
+                    ICECREAM: "Hempamint Chip",
+                    YOUTUBEIMAGE: "Josh-Lewis-Feature-Video-Slot.jpg",
+                    YOUTUBEDEFAULTID: "Josh-Lewis-Photo-Click",
+                    YOUTUBEID: "Josh-Lewis-Youtube-Container",
+                    YOUTUBE: "CUW9Rw3HKcM",
+                    YOUTUBELABEL: "Distant Relatives - 50to01 Visits Barcelona",
+                    MODALGRIDIMAGE1: "Josh-Lewis-Feature-Image-1.jpg",
+                    MODALGRIDIMAGE2: "Josh-Lewis-Feature-Image-2.jpg",
+                    MODALGRIDIMAGE3: "Josh-Lewis-Feature-Image-3.jpg"
+                },
+                {
+                    ID: 16,
+                    TYPE: "Mountain-Bike",
+                    ATHLETE_NAME_HEADLIME: "Kurt Sorge",
+                    ATHLETE_HELMET: "Disciple HELMET, Tyrant HELMET, Manifest HELMET, Quarter HELMET, Riddance SHOE",
+                    ATHLETE_MOBILE: "Disciple HELMET",
+                    FEATURED: true,
+                    ATHLETE_GRID_IMAGE: "Kurt-Sorge.jpg",
+                    MODAL_ATHLETE_PARAGRAPH: "Hailing from Nelson, B.C. Canada, Kurt Sorge holds the honor of being the only three-time winner of the coveted Red Bull Rampage title. Growing up and riding the challenging terrain in Nelson prepared Sorge to become one of the all-time legends in freeride, but it was his years of constant progression that took him to the top. His riding has sent him all over the globe and allowed him to take in some epic surf spots, too. Still living in Nelson, Sorge spends countless hours building new lines on his property, and in winter you will find him sledding in the backcountry.",
+                    MODAL_ATHELETE_HOMETOWN: "Nelson B.C., Canada",
+                    INSTAGRAM: "@kurtsorge",
+                    INSTAGRAMHREF: "https://www.instagram.com/kurtsorge/",
+                    ICECREAM: "If I had a 1,000,000 flavors",
+                    YOUTUBEIMAGE: "Kurt-Sorge-Feature-Video-Slot.jpg",
+                    YOUTUBEDEFAULTID: "Kurt-Photo-Click",
+                    YOUTUBEID: "Kurt-Youtube-Container",
+                    YOUTUBE: "CUW9Rw3HKcM",
+                    YOUTUBELABEL: "Distant Relatives - 50to01 Visits Barcelona",
+                    MODALGRIDIMAGE1: "Kurt-Sorge-Feature-Image-1.jpg",
+                    MODALGRIDIMAGE2: "Kurt-Sorge-Feature-Image-2.jpg",
+                    MODALGRIDIMAGE3: "Kurt-Sorge-Feature-Image-3.jpg"
+                },
+                {
+                    ID: 17,
+                    TYPE: "Mountain-Bike",
+                    ATHLETE_NAME_HEADLIME: "Paul Couderc",
+                    ATHLETE_HELMET: "Disciple HELMET, Tyrant HELMET, Quarter HELMET, RIDDANCE SHOE",
+                    ATHLETE_MOBILE: "Disciple HELMET",
+                    FEATURED: false,
+                    ATHLETE_GRID_IMAGE: "Paul-Couderc.jpg",
+                },
+                {
+                    ID: 18,
+                    TYPE: "Mountain-Bike",
+                    ATHLETE_NAME_HEADLIME: "Reed Boggs",
+                    ATHLETE_HELMET: "Disciple HELMET, Tyrant HELMET, Quarter HELMET, Riddance SHOE, Blok MTB GOGGLE",
+                    ATHLETE_MOBILE: "Disciple HELMET",
+                    FEATURED: false,
+                    ATHLETE_GRID_IMAGE: "Reed-Boggs.jpg",
+                },
+                {
+                    ID: 19,
+                    TYPE: "Mountain-Bike",
+                    ATHLETE_NAME_HEADLIME: "Sam Hockenhull",
+                    ATHLETE_HELMET: "Disciple HELMET, Tyrant HELMET, QUARTER HELMET",
+                    ATHLETE_MOBILE: "Tyrant HELMET",
+                    FEATURED: true,
+                    ATHLETE_GRID_IMAGE: "Sam-Hockenhull.jpg",
+                },
+                {
+                    ID: 20,
+                    TYPE: "Mountain-Bike",
+                    ATHLETE_NAME_HEADLIME: "Veronique Sandler",
+                    ATHLETE_HELMET: "Disciple HELMET, TYRANT HELMET, QUARTER HELMET, Blok MTB GOGGLE",
+                    ATHLETE_MOBILE: "Disciple HELMET",
+                    FEATURED: true,
+                    ATHLETE_GRID_IMAGE: "Veronique-Sandler.jpg",
+                    MODAL_ATHLETE_PARAGRAPH: "Currently based in Llanfyllin, Wales, mountain bike rider Veronique Sandler (or Vero, for short) is always inspiring awe with her positive attitude, incredible talent, and continued progression—especially when it comes to her no-handers, whips, and crack flips. You’ll most likely find this Kiwi smashing corners, getting technical on dirt jumps, or (now that COVID restrictions are lifting) traveling to various parts of the world to film her latest part, and she doesn’t plan on stopping anytime soon.",
+                    MODAL_ATHELETE_HOMETOWN: "Auckland, New Zealand",
+                    INSTAGRAM: "@veroniquesandler",
+                    INSTAGRAMHREF: "https://www.instagram.com/veroniquesandler/",
+                    ICECREAM: "Coconut Sorbet",
+                    YOUTUBEIMAGE: "Veronique-Sandler-Feature-Video-Slot.jpg",
+                    YOUTUBEDEFAULTID: "Veronique-Sandler-Photo-Click",
+                    YOUTUBEID: "Veronique-Sandler-Youtube-Container",
+                    YOUTUBE: "Z8siY_RglI0",
+                    YOUTUBELABEL: "Distant Relatives - 50to01 Visits Barcelona",
+                    MODALGRIDIMAGE1: "Veronique-Sandler-Feature-Image-1.jpg",
+                    MODALGRIDIMAGE2: "Veronique-Sandler-Feature-Image-2.jpg",
+                    MODALGRIDIMAGE3: "Veronique-Sandler-Feature-Image-3.jpg"
+
+                },
+                {
+                    ID: 59,
+                    TYPE: "Mountain-Bike",
+                    ATHLETE_NAME_HEADLIME: "Yeti Fox Factory",
+                    ATHLETE_HELMET: "Disciple HELMET, Tyrant HELMET, Manifest HELMET, Chamber II SHOE",
+                    ATHLETE_MOBILE: "Disciple HELMET",
+                    FEATURED: false,
+                    ATHLETE_GRID_IMAGE: "Yeti-Fox-Factory.jpg",
+                }
+            ],
+            GRAVEL: [
+                {
+                    ID: 21,
+                    TYPE: "GRAVEL",
+                    ATHLETE_NAME_HEADLIME: "Amanda Schaper",
+                    ATHLETE_HELMET: "HELIOS HELMET, MANIFEST HELMET, SECTOR W SHOE, LA DND GLOVE, APPAREL",
+                    ATHLETE_MOBILE: "HELIOS HELMET",
+                    FEATURED: false,
+                    ATHLETE_GRID_IMAGE: "Amanda-Schaper.jpg",
+                },
+                {
+                    ID: 22,
+                    TYPE: "GRAVEL",
+                    ATHLETE_NAME_HEADLIME: "Andrew Jackson",
+                    ATHLETE_HELMET: "Helios HELMET, Imperial SHOE, APPAREL",
+                    ATHLETE_MOBILE: "Helios HELMET",
+                    FEATURED: false,
+                    ATHLETE_GRID_IMAGE: "Andrew-Jackson.jpg",
+                },
+                {
+                    ID: 23,
+                    TYPE: "GRAVEL",
+                    ATHLETE_NAME_HEADLIME: "Kathy Pruitt",
+                    ATHLETE_HELMET: "HELIOS HELMET, MANIFEST HELMET, EMPIRE VR90 SHOE, IMPERIAL shoe, WOMEN’S XNETIC TRAIL GLOVE, APPAREL",
+                    ATHLETE_MOBILE: "HELIOS HELMET",
+                    FEATURED: false,
+                    ATHLETE_GRID_IMAGE: "Kathy-Pruitt.jpg",
+                },
+                {
+                    ID: 24,
+                    TYPE: "GRAVEL",
+                    ATHLETE_NAME_HEADLIME: "Nehemiah Brown",
+                    ATHLETE_HELMET: "AETHER HELMET, HELIOS HELMET, MANIFEST HELMET, SECTOR SHOE, D’WOOL GLOVE, APPAREL",
+                    ATHLETE_MOBILE: "HELIOS HELMET",
+                    FEATURED: false,
+                    ATHLETE_GRID_IMAGE: "Nehemiah-Brown.jpg",
+
+                }
+            ],
+            CYLOCROSS: [
+                {
+                    ID: 25,
+                    TYPE: "CYLOCROSS",
+                    ATHLETE_NAME_HEADLIME: "Curtis White",
+                    ATHLETE_HELMET: "Aether helmet, Empire VR90 shoe",
+                    ATHLETE_MOBILE: "Aether helmet, Empire VR90 shoe",
+                    FEATURED: false,
+                    ATHLETE_GRID_IMAGE: "Curtis-White.jpg",
+                },
+                {
+                    ID: 26,
+                    TYPE: "CYLOCROSS",
+                    ATHLETE_NAME_HEADLIME: "Kaitie Keough",
+                    ATHLETE_HELMET: "Aether helmet, Sector W shoe",
+                    ATHLETE_MOBILE: "Aether helmet, Sector W shoe",
+                    FEATURED: false,
+                    ATHLETE_GRID_IMAGE: "Kaitie-Keough.jpg",
+                },
+                {
+                    ID: 27,
+                    TYPE: "CYLOCROSS",
+                    ATHLETE_NAME_HEADLIME: "Clara Honsinger",
+                    ATHLETE_HELMET: "Aether helmet, Sector W shoe",
+                    ATHLETE_MOBILE: "Aether helmet, Sector W shoe",
+                    FEATURED: false,
+                    ATHLETE_GRID_IMAGE: "Clara-Honsinger.jpg",
+                },
+                {
+                    ID: 28,
+                    TYPE: "CYLOCROSS",
+                    ATHLETE_NAME_HEADLIME: "Katie Clousee",
+                    ATHLETE_HELMET: "Aether helmet, Sector W shoe",
+                    ATHLETE_MOBILE: "Aether helmet, Sector W shoe",
+                    FEATURED: false,
+                    ATHLETE_GRID_IMAGE: "Katie-Clousee.jpg",
+                }
+            ],
+            SNOWBOARD: [
+                {
+                    ID: 29,
+                    TYPE: "SNOWBOARD",
+                    ATHLETE_NAME_HEADLIME: "Bryan Fox",
+                    ATHLETE_HELMET: "Axis goggle",
+                    ATHLETE_MOBILE: "Axis goggle",
+                    FEATURED: false,
+                    ATHLETE_GRID_IMAGE: "Bryan-Fox.jpg",
+                },
+                {
+                    ID: 30,
+                    TYPE: "SNOWBOARD",
+                    ATHLETE_NAME_HEADLIME: "Christian Haller",
+                    ATHLETE_HELMET: "Emerge helmet, Method goggle",
+                    ATHLETE_MOBILE: "Emerge helmet, Method goggle",
+                    FEATURED: false,
+                    ATHLETE_GRID_IMAGE: "Christian-Haller.jpg",
+                },
+                {
+                    ID: 31,
+                    TYPE: "SNOWBOARD",
+                    ATHLETE_NAME_HEADLIME: "Darcy Sharpe",
+                    ATHLETE_HELMET: "Emerge helmet, Contour goggle",
+                    ATHLETE_MOBILE: "Emerge helmet, Contour goggle",
+                    FEATURED: false,
+                    ATHLETE_GRID_IMAGE: "Darcy-Sharpe.jpg",
+                },
+                {
+                    ID: 32,
+                    TYPE: "SNOWBOARD",
+                    ATHLETE_NAME_HEADLIME: "Enni Rukajärvi",
+                    ATHLETE_HELMET: "Emerge helmet, Ella goggle",
+                    ATHLETE_MOBILE: "Emerge helmet, Ella goggle",
+                    FEATURED: false,
+                    ATHLETE_GRID_IMAGE: "Enni-Rukajarvi.jpg",
+                },
+                {
+                    ID: 33,
+                    TYPE: "SNOWBOARD",
+                    ATHLETE_NAME_HEADLIME: "Gabe Ferguson",
+                    ATHLETE_HELMET: "Emerge helmet, Contour goggle",
+                    ATHLETE_MOBILE: "Emerge helmet, Contour goggle",
+                    FEATURED: false,
+                    ATHLETE_GRID_IMAGE: "Gabe-Ferguson.jpg",
+                },
+                {
+                    ID: 34,
+                    TYPE: "SNOWBOARD",
+                    ATHLETE_NAME_HEADLIME: "Klaudia Medlová",
+                    ATHLETE_HELMET: "Emerge helmet, Ella goggle",
+                    ATHLETE_MOBILE: "Emerge helmet, Ella goggle",
+                    FEATURED: false,
+                    ATHLETE_GRID_IMAGE: "Klaudia-Medlova.jpg",
+                },
+                {
+                    ID: 35,
+                    TYPE: "SNOWBOARD",
+                    ATHLETE_NAME_HEADLIME: "Maddie mastro",
+                    ATHLETE_HELMET: "Emerge helmet, Ella goggle",
+                    ATHLETE_MOBILE: "Emerge helmet, Ella goggle",
+                    FEATURED: false,
+                    ATHLETE_GRID_IMAGE: "Maddie-Mastro.jpg",
+                },
+                {
+                    ID: 36,
+                    TYPE: "SNOWBOARD",
+                    ATHLETE_NAME_HEADLIME: "Nils Mindnich",
+                    ATHLETE_HELMET: "Jackson helmet, Axis goggle",
+                    ATHLETE_MOBILE: "Jackson helmet, Axis goggle",
+                    FEATURED: false,
+                    ATHLETE_GRID_IMAGE: "Nils-Mindnich.jpg",
+                },
+                {
+                    ID: 37,
+                    TYPE: "SNOWBOARD",
+                    ATHLETE_NAME_HEADLIME: "Sammy Luebke",
+                    ATHLETE_HELMET: "Emerge helmet, Axis goggle",
+                    ATHLETE_MOBILE: "Emerge helmet, Axis goggle",
+                    FEATURED: false,
+                    ATHLETE_GRID_IMAGE: "Sammy-Luebbke.jpg",
+                },
+                {
+                    ID: 38,
+                    TYPE: "SNOWBOARD",
+                    ATHLETE_NAME_HEADLIME: "Sebbe De Buck",
+                    ATHLETE_HELMET: "Emerge hemlet, Contour goggle",
+                    ATHLETE_MOBILE: "Emerge hemlet, Contour goggle",
+                    FEATURED: false,
+                    ATHLETE_GRID_IMAGE: "Sebbe-De-Buck.jpg",
+                }
+            ],
+            SKI: [
+                {
+                    ID: 39,
+                    TYPE: "SKI",
+                    ATHLETE_NAME_HEADLIME: "Brita Sigourney",
+                    ATHLETE_HELMET: "Emerge helmet, Ella goggle",
+                    ATHLETE_MOBILE: "Emerge helmet, Ella goggle",
+                    FEATURED: false,
+                    ATHLETE_GRID_IMAGE: "Brita-Sigourney.jpg",
+                },
+                {
+                    ID: 40,
+                    TYPE: "SKI",
+                    ATHLETE_NAME_HEADLIME: "Callum Pettit",
+                    ATHLETE_HELMET: "Range helmet, Contour goggle",
+                    ATHLETE_MOBILE: "Range helmet, Contour goggle",
+                    FEATURED: false,
+                    ATHLETE_GRID_IMAGE: "Callum-Pettit.jpg",
+                },
+                {
+                    ID: 41,
+                    TYPE: "SKI",
+                    ATHLETE_NAME_HEADLIME: "Cassie Sharpe",
+                    ATHLETE_HELMET: "Emerge helmet, Ella goggle",
+                    ATHLETE_MOBILE: "Emerge helmet, Ella goggle",
+                    FEATURED: false,
+                    ATHLETE_GRID_IMAGE: "Cassie-Sharpe.jpg",
+                },
+                {
+                    ID: 42,
+                    TYPE: "SKI",
+                    ATHLETE_NAME_HEADLIME: "Daron Rahlves",
+                    ATHLETE_HELMET: "Grid helmet, Contour goggle",
+                    ATHLETE_MOBILE: "Grid helmet, Contour goggle",
+                    FEATURED: false,
+                    ATHLETE_GRID_IMAGE: "Daron-Rahlves.jpg",
+                },
+                {
+                    ID: 43,
+                    TYPE: "SKI",
+                    ATHLETE_NAME_HEADLIME: "Drew Tabke",
+                    ATHLETE_HELMET: "Jackson helmet, Contour goggle",
+                    ATHLETE_MOBILE: "Jackson helmet, Contour goggle",
+                    FEATURED: false,
+                    ATHLETE_GRID_IMAGE: "Drew-Tabke.jpg",
+                },
+                {
+                    ID: 44,
+                    TYPE: "SKI",
+                    ATHLETE_NAME_HEADLIME: "Elena Gaskell",
+                    ATHLETE_HELMET: "Emerge helmet, Ella goggle",
+                    ATHLETE_MOBILE: "Emerge helmet, Ella goggle",
+                    FEATURED: false,
+                    ATHLETE_GRID_IMAGE: "Elena-Gaskell.jpg",
+                },
+                {
+                    ID: 45,
+                    TYPE: "SKI",
+                    ATHLETE_NAME_HEADLIME: "Evan McEachran",
+                    ATHLETE_HELMET: "Emerge helmet, Contour goggle",
+                    ATHLETE_MOBILE: "Emerge helmet, Contour goggle",
+                    FEATURED: false,
+                    ATHLETE_GRID_IMAGE: "Evan-Mceachran.jpg",
+                },
+                {
+                    ID: 46,
+                    TYPE: "SKI",
+                    ATHLETE_NAME_HEADLIME: "Ingrid Backstrom",
+                    ATHLETE_HELMET: "Envi helmet, Ella goggle",
+                    ATHLETE_MOBILE: "Envi helmet, Ella goggle",
+                    FEATURED: false,
+                    ATHLETE_GRID_IMAGE: "Ingrid-Backstrom.jpg",
+                },
+                {
+                    ID: 47,
+                    TYPE: "SKI",
+                    ATHLETE_NAME_HEADLIME: "Max Palm",
+                    ATHLETE_HELMET: "Jackson helmet, Contour goggle",
+                    ATHLETE_MOBILE: "Jackson helmet, Contour goggle",
+                    FEATURED: false,
+                    ATHLETE_GRID_IMAGE: "Max-Palm.jpg",
+                },
+                {
+                    ID: 48,
+                    TYPE: "SKI",
+                    ATHLETE_NAME_HEADLIME: "Nico Porteous",
+                    ATHLETE_HELMET: "Emerge helmet, Contour goggle",
+                    ATHLETE_MOBILE: "Emerge helmet, Contour goggle",
+                    FEATURED: false,
+                    ATHLETE_GRID_IMAGE: "Nico-Porteous.jpg",
+                },
+                {
+                    ID: 49,
+                    TYPE: "SKI",
+                    ATHLETE_NAME_HEADLIME: "reine barkered",
+                    ATHLETE_HELMET: "Grid helmet, Countour goggle",
+                    ATHLETE_MOBILE: "Grid helmet, Countour goggle",
+                    FEATURED: false,
+                    ATHLETE_GRID_IMAGE: "Reine-Barkered.jpg",
+                },
+                {
+                    ID: 50,
+                    TYPE: "SKI",
+                    ATHLETE_NAME_HEADLIME: "Sam Smoothy",
+                    ATHLETE_HELMET: "Grid helmet, Countour goggle",
+                    ATHLETE_MOBILE: "Grid helmet, Countour goggle",
+                    FEATURED: false,
+                    ATHLETE_GRID_IMAGE: "Sam-Smoothy.jpg",
+                },
+                {
+                    ID: 51,
+                    TYPE: "SKI",
+                    ATHLETE_NAME_HEADLIME: "Thibault Magnin",
+                    ATHLETE_HELMET: "Jackson helmet, Contour goggle",
+                    ATHLETE_MOBILE: "Jackson helmet, Contour goggle",
+                    FEATURED: false,
+                    ATHLETE_GRID_IMAGE: "Thibaut-Magnin.jpg",
+                },
+                {
+                    ID: 52,
+                    TYPE: "SKI",
+                    ATHLETE_NAME_HEADLIME: "Torin Yater-Wallace",
+                    ATHLETE_HELMET: "Emerge helmet, Contour goggle",
+                    ATHLETE_MOBILE: "Emerge helmet, Contour goggle",
+                    FEATURED: false,
+                    ATHLETE_GRID_IMAGE: "Torin-Yater-Wallace.jpg",
+                },
+            ],
+            ALPINERACING: [
+                {
+                    ID: 53,
+                    TYPE: "ALPINE",
+                    ATHLETE_NAME_HEADLIME: "Daniel Yule",
+                    ATHLETE_HELMET: "Emerge HELMET, Avance HELMET, Blok GOGGLE",
+                    ATHLETE_MOBILE: "Emerge HELMET, Avance HELMET, Blok GOGGLE",
+                    FEATURED: false,
+                    ATHLETE_GRID_IMAGE: "Daniel-Yule.jpg",
+                },
+                {
+                    ID: 54,
+                    TYPE: "ALPINE",
+                    ATHLETE_NAME_HEADLIME: "Gino Caviezel",
+                    ATHLETE_HELMET: "Avance helmet, Contour goggle",
+                    ATHLETE_MOBILE: "Avance helmet, Contour goggle",
+                    FEATURED: false,
+                    ATHLETE_GRID_IMAGE: "Gino-Caviezel.jpg",
+                },
+                {
+                    ID: 55,
+                    TYPE: "ALPINE",
+                    ATHLETE_NAME_HEADLIME: "Luke Winters",
+                    ATHLETE_HELMET: "Avance HELMET, Ledge SL HELMET, Contour GOGGLE",
+                    ATHLETE_MOBILE: "Avance HELMET",
+                    FEATURED: false,
+                    ATHLETE_GRID_IMAGE: "Luke-Winters.jpg",
+                },
+                {
+                    ID: 56,
+                    TYPE: "ALPINE",
+                    ATHLETE_NAME_HEADLIME: "Nina O’Brien",
+                    ATHLETE_HELMET: "Avance HELMET, Ledge SL HELMET, Contour GOGGLE, ELLA GOGGLE",
+                    ATHLETE_MOBILE: "Avance HELMET",
+                    FEATURED: false,
+                    ATHLETE_GRID_IMAGE: "Nina-OBrien.jpg",
+                },
+                {
+                    ID: 57,
+                    TYPE: "ALPINE",
+                    ATHLETE_NAME_HEADLIME: "Thomas Tumler",
+                    ATHLETE_HELMET: "Avance HELMET, Ledge SL HELMET, Contour GOGGLE",
+                    ATHLETE_MOBILE: "Avance HELMET",
+                    FEATURED: false,
+                    ATHLETE_GRID_IMAGE: "Thomas-Tumler.jpg",
+                },
+                {
+                    ID: 58,
+                    TYPE: "ALPINE",
+                    ATHLETE_NAME_HEADLIME: "Urs Kryenbühl",
+                    ATHLETE_HELMET: "Avance HELMET, Contour GOGGLE",
+                    ATHLETE_MOBILE: "Avance HELMET, Contour GOGGLE",
+                    FEATURED: false,
+                    ATHLETE_GRID_IMAGE: "Urs-Kryenbuhl.jpg",
+                },
+            ]
+        }
+        
+        
+        //DETECTING MOBILE FOR HELMET DISPLAY
+        var mobilestate = false
+        if (window.matchMedia("(max-width: 768px)").matches) {
+            var mobilestate = true
+        }
+
+        //ADD DATA TO ATHLETE//
+        var RoadCyclingArray = athleteData.ROADCYCLING.map(function (individual) {
+            return `<div class="athlete-container inline-block col-6  col-lg-3 ${individual.TYPE}" id="${individual.ID}">
+                    <img class="athelte-grid-photo img-responsive" src="images/landing-pages/${individual.ATHLETE_GRID_IMAGE}?$staticlink$" alt="">
+                    <h2 class="athlete-name">${individual.ATHLETE_NAME_HEADLIME}</h2>
+                    <p class="athlete-subhead">${mobilestate ? individual.ATHLETE_MOBILE : individual.ATHLETE_HELMET}</p>
+
+            </div>`
+        })
+
+        var MoutainBikeArray = athleteData.MOUNTAINBIKE.map(function (individual) {
+            return `<div class="athlete-container inline-block col-6  col-lg-3 ${individual.TYPE}" id="${individual.ID}">
+                    <img class="athelte-grid-photo img-responsive" src="images/landing-pages/${individual.ATHLETE_GRID_IMAGE}?$staticlink$" alt="">
+                    <h2 class="athlete-name">${individual.ATHLETE_NAME_HEADLIME}</h2>
+                    <p class="athlete-subhead">${mobilestate ? individual.ATHLETE_MOBILE : individual.ATHLETE_HELMET}</p>
+            </div>`
+        })
+
+        var GravelArray = athleteData.GRAVEL.map(function (individual) {
+            return `<div class="athlete-container inline-block col-6  col-lg-3 ${individual.TYPE}" id="${individual.ID}">
+                    <img class="athelte-grid-photo img-responsive" src="images/landing-pages/${individual.ATHLETE_GRID_IMAGE}?$staticlink$" alt="">
+                    <h2 class="athlete-name">${individual.ATHLETE_NAME_HEADLIME}</h2>
+                    <p class="athlete-subhead">${mobilestate ? individual.ATHLETE_MOBILE : individual.ATHLETE_HELMET}</p>
+            </div>`
+        })
+
+        var CylocrossArray = athleteData.CYLOCROSS.map(function (individual) {
+            return `<div class="athlete-container inline-block col-6  col-lg-3 ${individual.TYPE}" id="${individual.ID}">
+                <div class="">
+                    <img class="athelte-grid-photo img-responsive" src="images/landing-pages/${individual.ATHLETE_GRID_IMAGE}?$staticlink$" alt="">
+                    <h2 class="athlete-name">${individual.ATHLETE_NAME_HEADLIME}</h2>
+                    <p class="athlete-subhead">${mobilestate ? individual.ATHLETE_MOBILE : individual.ATHLETE_HELMET}</p>
+                </div>
+            </div>`
+        })
+        var SnowBoardArray = athleteData.SNOWBOARD.map(function (individual) {
+            return `<div class="athlete-container inline-block col-6  col-lg-3 ${individual.TYPE}" id="${individual.ID}">
+                <div class="">
+                    <img class="athelte-grid-photo img-responsive" src="images/landing-pages/${individual.ATHLETE_GRID_IMAGE}?$staticlink$" alt="">
+                    <h2 class="athlete-name">${individual.ATHLETE_NAME_HEADLIME}</h2>
+                    <p class="athlete-subhead">${mobilestate ? individual.ATHLETE_MOBILE : individual.ATHLETE_HELMET}</p>
+                </div>
+            </div>`
+        })
+        var SkiArray = athleteData.SKI.map(function (individual) {
+            return `<div class="athlete-container inline-block col-6  col-lg-3 ${individual.TYPE}" id="${individual.ID}">
+                <div class="">
+                    <img class="athelte-grid-photo img-responsive" src="images/landing-pages/${individual.ATHLETE_GRID_IMAGE}?$staticlink$" alt="">
+                    <h2 class="athlete-name">${individual.ATHLETE_NAME_HEADLIME}</h2>
+                    <p class="athlete-subhead">${mobilestate ? individual.ATHLETE_MOBILE : individual.ATHLETE_HELMET}</p>
+                </div>
+            </div>`
+        })
+        var AlpineArray = athleteData.ALPINERACING.map(function (individual) {
+            return `<div class="athlete-container inline-block col-6  col-lg-3 ${individual.TYPE}" id="${individual.ID}">
+                <div class="">
+                    <img class="athelte-grid-photo img-responsive" src="images/landing-pages/${individual.ATHLETE_GRID_IMAGE}?$staticlink$" alt="">
+                    <h2 class="athlete-name">${individual.ATHLETE_NAME_HEADLIME}</h2>
+                    <p class="athlete-subhead">${mobilestate ? individual.ATHLETE_MOBILE : individual.ATHLETE_HELMET}</p>
+                </div>
+            </div>`
+        })
+        var athleteValues = Object.values(athleteData)
+        var allAthleteSorted = [].concat.apply([], athleteValues);
+        allAthleteSorted.sort(function (a, b) {
+            if (a.ATHLETE_NAME_HEADLIME < b.ATHLETE_NAME_HEADLIME) { return -1; }
+            if (a.ATHLETE_NAME_HEADLIME > b.ATHLETE_NAME_HEADLIME) { return 1; }
+            return 0;
+        })
+        var combinedArray = allAthleteSorted.map(function (individual) {
+            return `<div class="athlete-container inline-block col-6  col-lg-3 ${individual.TYPE}" id="${individual.ID}">
+                <div class="">
+                    <img class="athelte-grid-photo img-responsive" src="images/landing-pages/${individual.ATHLETE_GRID_IMAGE}?$staticlink$" alt="">
+                    <h2 class="athlete-name">${individual.ATHLETE_NAME_HEADLIME}</h2>
+                    <p class="athlete-subhead">${mobilestate ? individual.ATHLETE_MOBILE : individual.ATHLETE_HELMET}</p>
+                </div>
+            </div>`
+        })
+        //HTML ADDED - MODAL HTML FUNCTION
+        function HTMLAdded(type) {
+            if (type === "road-cycling") {
+                athleteData.ROADCYCLING.map(function (item) {
+                    if (document.getElementById(`${item.ID}`) && item.FEATURED) {
+                        document.getElementById(`${item.ID}`).addEventListener("click", function (e) {
+
+                        }, false);
+                    }
+                })
+            }
+            //MOUNTAIN BIKE
+            var modalArray = []
+            athleteData.MOUNTAINBIKE.map(function (item, index) {
+                if (document.getElementById(`${item.ID}`) && item.FEATURED) {
+                    var HTMLDIV = `<div class="_athlete-modal grey_background col-sm-12 padding-0">
+                            <div class="arrow-first"></div>
+                            <div class = "row d-flex"> 
+                                <div class = "athlete-name-and-para col-xs-12 col-md-8">
+                                    <h3> ${item.ATHLETE_NAME_HEADLIME}</h3>
+                                    <p class = "modal-para">${item.MODAL_ATHLETE_PARAGRAPH}</p>
+                                </div>
+                                <div class="modal_athelete_para_and_list d-flex col-xs-12 col-md-4">
+                                        <li>
+                                            <label>
+                                                HOMETOWN:
+                                            </label>
+                                            <p class="MODAL_ATHELETE_HOMTEOWN">
+                                            ${item.MODAL_ATHELETE_HOMETOWN}
+                                            </p>
+                                        </li>
+                                        <li class=  "flex flex-column">
+                                            <label>
+                                                INSTAGRAM HANDLE:
+                                            </label>
+                                            <a class="instagram-handle" href="${item.INSTAGRAMHREF}">
+                                                    ${item.INSTAGRAM}
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <label>
+                                                FAVORITE ICECREAM:
+                                            </label>
+                                            <p>
+                                                ${item.ICECREAM}
+                                            </p>
+                                        </li>
+                                </div>
+                            </div>
+                            <div class="modal_athlete_youtube_container">
+                                <div class = "youtube-picture youtube-click-image" id = "${item.YOUTUBEDEFAULTID}">
+                                    <img class = "img-responsive" onclick="" alt = "${item.ATHLETE_NAME_HEADLIME}" src = "images/landing-pages/${item.YOUTUBEIMAGE}?$staticlink$" />
+                                </div>
+                                <iframe width="560" height="315" id= ${item.YOUTUBEID} class = "collapse youtube-iframe"
+                                src="https://www.youtube.com/embed/${item.YOUTUBE}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <p class="youtube-label">${item.YOUTUBELABEL} </p>
+                            </div>
+                            <div class="modal_athlete_image_row row">
+                                <div class = "col-xs-12 col-md-4 ">
+                                    <img class = "athlete-grid-image img-responsive" alt = "${item.ATHLETE_NAME_HEADLIME}" src ="images/landing-pages/${item.MODALGRIDIMAGE1}?$staticlink$"/>
+                                </div>
+                                <div class = "col-xs-12 col-md-4 ">
+                                    <img class = "athlete-grid-image img-responsive" alt = "${item.ATHLETE_NAME_HEADLIME}" src ="images/landing-pages/${item.MODALGRIDIMAGE2}?$staticlink$"/>
+                                </div>
+                                <div class = "col-xs-12 col-md-4 ">
+                                    <img class = "athlete-grid-image-last img-responsive" alt = "${item.ATHLETE_NAME_HEADLIME}" src ="images/landing-pages/${item.MODALGRIDIMAGE3}?$staticlink$"/>
+                                </div>
+                            </div>
+                        </div>`
+
+                    modalArray.push({
+                        ID: item.ID,
+                        HTML: HTMLDIV,
+                    })
+                    //ADD ATHLETE MODAL HTML to GRAY BOX
+                    document.getElementById(`${item.ID}`).addEventListener("click", function () {
+                        var modalHTML = modalArray.filter(function (type) {
+                            return type.ID === item.ID
+                        })
+                        $(`.athlete-container:not(#${item.ID})`).siblings('.modal-show-container').addClass('collapse')
+                        $(`#${item.ID}`).nextAll('.modal-show-container').first().removeClass('collapse').html(modalHTML[0].HTML).trigger("domChanged");
+                    }, false);
+                }
+            })
+        }
+
+
+
+
+        //SHOW ALL ATHLETES WHEN NO FILTER
+        // var combinedArray = [...RoadCyclingArray, ...MoutainBikeArray, ...GravelArray, ...CylocrossArray, ...SnowBoardArray, ...SkiArray, ...AlpineArray]
+
+
+
+        var modalDesktopDiv = '<div class="modal-show-container collapse hidden-xs col-12"></div>';
+
+
+
+        if (window.matchMedia("(max-width: 768px)").matches) {
+            HTMLAdded('all')
+
+            //MOBILE FILTER MENU
+            for (var itemIndex = 2; itemIndex < combinedArray.length; itemIndex += 3) {
+                combinedArray.splice(itemIndex, 0, modalDesktopDiv);
+            }
+            for (var itemIndex = 2; itemIndex < RoadCyclingArray.length; itemIndex += 3) {
+                RoadCyclingArray.splice(itemIndex, 0, modalDesktopDiv);
+            }
+            for (var itemIndex = 2; itemIndex < MoutainBikeArray.length; itemIndex += 3) {
+                MoutainBikeArray.splice(itemIndex, 0, modalDesktopDiv);
+            }
+            for (var itemIndex = 2; itemIndex < GravelArray.length; itemIndex += 3) {
+                GravelArray.splice(itemIndex, 0, modalDesktopDiv);
+            }
+            for (var itemIndex = 2; itemIndex < CylocrossArray.length; itemIndex += 3) {
+                CylocrossArray.splice(itemIndex, 0, modalDesktopDiv);
+            }
+            for (var itemIndex = 2; itemIndex < SnowBoardArray.length; itemIndex += 3) {
+                SnowBoardArray.splice(itemIndex, 0, modalDesktopDiv);
+            }
+            for (var itemIndex = 2; itemIndex < SkiArray.length; itemIndex += 3) {
+                SkiArray.splice(itemIndex, 0, modalDesktopDiv);
+            }
+            for (var itemIndex = 2; itemIndex < AlpineArray.length; itemIndex += 3) {
+                AlpineArray.splice(itemIndex, 0, modalDesktopDiv);
+            }
+            $('.bi-filter').removeClass('collapse')
+            $('.modal-content-mobile').addClass('modal-content')
+            $('.modal-dialog-mobile').addClass('modal-dialog')
+            $('.filter-button-container-menu').addClass('modal')
+            $('.filter-by-button').attr("data-toggle", "modal")
+            $('.modal-header').removeClass('collapse')
+            //ADD TOTAL RIDER COUNT TO MOBILE CATEGORY
+            $('#RoadCyclingFilterButton').text(`Road Cycling (${athleteData.ROADCYCLING.length})`)
+            $('#MountainBikeFilterButton').text(`Mountain Bike (${athleteData.MOUNTAINBIKE.length})`)
+            $('#GravelFilterButton').text(`Gravel (${athleteData.GRAVEL.length})`)
+            $('#CyclocrossFilterButton').text(`Cyclocross (${athleteData.GRAVEL.length})`)
+            $('#SnowBoardFilterButton').text(`Snowboard (${athleteData.SNOWBOARD.length})`)
+            $('#SkiFilterButton').text(`Ski (${athleteData.SKI.length})`)
+            $('#AlpineFilterButton').text(`Alpine (${athleteData.ALPINERACING.length})`)
+
+        } else {
+            HTMLAdded('all')
+            //DESKTOP FILTER MENU
+            //ADD Desktop Div underneath the 4th athlete//
+            for (var itemIndex = 4; itemIndex < combinedArray.length + 4; itemIndex += 5) {
+                combinedArray.splice(itemIndex, 0, modalDesktopDiv);
+            }
+            for (var itemIndex = 4; itemIndex < RoadCyclingArray.length + 4; itemIndex += 5) {
+                RoadCyclingArray.splice(itemIndex, 0, modalDesktopDiv);
+            }
+            for (var itemIndex = 4; itemIndex < MoutainBikeArray.length + 4; itemIndex += 5) {
+                MoutainBikeArray.splice(itemIndex, 0, modalDesktopDiv);
+            }
+            for (var itemIndex = 4; itemIndex < GravelArray.length + 4; itemIndex += 5) {
+                GravelArray.splice(itemIndex, 0, modalDesktopDiv);
+            }
+            for (var itemIndex = 4; itemIndex < CylocrossArray.length + 4; itemIndex += 5) {
+                CylocrossArray.splice(itemIndex, 0, modalDesktopDiv);
+            }
+            for (var itemIndex = 4; itemIndex < SnowBoardArray.length + 4; itemIndex += 5) {
+                SnowBoardArray.splice(itemIndex, 0, modalDesktopDiv);
+            }
+            for (var itemIndex = 4; itemIndex < SkiArray.length + 4; itemIndex += 5) {
+                SkiArray.splice(itemIndex, 0, modalDesktopDiv);
+            }
+            for (var itemIndex = 4; itemIndex < AlpineArray.length + 4; itemIndex += 5) {
+                AlpineArray.splice(itemIndex, 0, modalDesktopDiv);
+            }
+
+
+            //REMOVE TOTAL RIDER COUNT ON DESKTOP (if someone moved screen width somehow)
+            $('#RoadCyclingFilterButton').text(`Road Cycling`)
+            $('#MountainBikeFilterButton').text(`Mountain Bike`)
+            $('#GravelFilterButton').text(`Gravel`)
+            $('#CyclocrossFilterButton').text(`Cyclocross`)
+            $('#SnowBoardFilterButton').text(`Snowboard`)
+            $('#SkiFilterButton').text(`Ski`)
+            $('#AlpineFilterButton').text(`Alpine`)
+
+            //ADD BACK if someone moved screen width
+            $('.modal-content-mobile').removeClass('modal-content')
+            $('.modal-dialog-mobile').removeClass('modal-dialog')
+            $('.filter-button-container-menu').removeClass('modal')
+            $('.filter-by-button').attr("data-toggle", "")
+            $('.modal-header').addClass('collapse')
+        }
+        //ADD CLICK EVENT TO FILTER BUTTONS
+        $('.active-category-headline').text('ALL ATHLETES')
+        $('.active-category').html(combinedArray)
+        HTMLAdded('all')
+        document.getElementById("RoadCyclingFilterButton").addEventListener("click", function (type, e) {
+            $('.active-category').html(RoadCyclingArray)
+            $('.active-category-headline').text('ROAD CYCLING ATHLETES')
+            $('#RoadCyclingFilterButton').addClass('active')
+            $(".filterbutton:not(#RoadCyclingFilterButton)").removeClass('active');
+            $('#RoadCyclingFilterButton').addClass('active')
+            HTMLAdded('road-cycling')
+            $('#vidsplash').attr('src', categoryVideoLoopsObj.ROADCYCLING_VIDEO_LOOP)
+        }, false);
+        document.getElementById("MountainBikeFilterButton").addEventListener("click", function (type, e) {
+            $('.active-category-headline').text('MOUNTAIN BIKE ATHLETES')
+            $('.active-category').html(MoutainBikeArray)
+            $('#MountainBikeFilterButton').addClass('active')
+            $(".filterbutton:not(#MountainBikeFilterButton)").removeClass('active');
+            $('#vidsplash').attr('src', categoryVideoLoopsObj.MOUNTAINBIKE_VIDEO_LOOP)
+            HTMLAdded('mountain-bike')
+        }, false);
+        document.getElementById("GravelFilterButton").addEventListener("click", function (type, e) {
+            $('.active-category-headline').text('GRAVEL ATHLETES')
+            $('.active-category').html(GravelArray)
+            $('#GravelFilterButton').addClass('active')
+            $(".filterbutton:not(#GravelFilterButton)").removeClass('active');
+            $('#vidsplash').attr('src', categoryVideoLoopsObj.GRAVEL_VIDEO_LOOP)
+            HTMLAdded('gravel')
+        }, false);
+        document.getElementById("CyclocrossFilterButton").addEventListener("click", function (type, e) {
+            $('.active-category-headline').text('CYCLOCROSS ATHLETES')
+            $('.active-category').html(CylocrossArray)
+            $('#CyclocrossFilterButton').addClass('active')
+            $(".filterbutton:not(#CyclocrossFilterButton)").removeClass('active');
+            $('#vidsplash').attr('src', categoryVideoLoopsObj.CYCLOCROSS_VIDEO_LOOP)
+            HTMLAdded('cyclocross')
+        }, false);
+        document.getElementById("SnowBoardFilterButton").addEventListener("click", function (type, e) {
+            $('.active-category-headline').text('SNOWBOARD ATHLETES')
+            $('.active-category').html(SnowBoardArray)
+            $('#SnowBoardFilterButton').addClass('active')
+            $(".filterbutton:not(#SnowBoardFilterButton)").removeClass('active');
+            $('#vidsplash').attr('src', categoryVideoLoopsObj.SNOWBOARD_VIDEO_LOOP)
+            HTMLAdded('snowboard')
+        }, false);
+        document.getElementById("SkiFilterButton").addEventListener("click", function (type, e) {
+            $('.active-category-headline').text('SKI TEAM')
+            $('.active-category').html(SkiArray)
+            $('#SkiFilterButton').addClass('active')
+            $(".filterbutton:not(#SkiFilterButton)").removeClass('active');
+            $('#vidsplash').attr('src', categoryVideoLoopsObj.SKI_VIDEO_LOOP)
+            HTMLAdded('ski')
+        }, false);
+        document.getElementById("AlpineFilterButton").addEventListener("click", function (type, e) {
+            $('.active-category-headline').text('ALPINE RACE TEAM')
+            $('.active-category').html(AlpineArray)
+            $('#AlpineFilterButton').addClass('active')
+            $(".filterbutton:not(#AlpineFilterButton)").removeClass('active');
+            $('#vidsplash').attr('src', categoryVideoLoopsObj.AL)
+            HTMLAdded('alpine')
+        }, false);
+
+
+        $("body").on("domChanged", function (e) {
+            $(e.target).find('.youtube-click-image').on("click", function (e) {
+                $(e.currentTarget).addClass('collapse').next().removeClass('collapse')
+                $(this).parents('.modal_athlete_youtube_container').find('.youtube-iframe').removeClass('collapse')
+                var link = $(this).parents('.modal_athlete_youtube_container').find('.youtube-iframe')
+                link.attr('src', link.attr('src') + '?&autoplay=1');
+            })
+
+        });
+    });
+
+
+</script>
+<style>
+    .modal-show-container {
+        background-color: #f1f1f1;
+        margin-bottom: 20px;
+        position: relative;
+    }
+
+    .filterbutton {
+        text-transform: uppercase !important;
+        padding: 0 !important;
+        background: none !important;
+        color: #777777 !important;
+        font-family: NewsGothicBT-RomanCondensed, sans-serif !important;
+    }
+
+    .youtube-label {
+        text-transform: uppercase;
+        padding-top: 15px;
+        padding-bottom: 30px;
+        margin-bottom: 0px !important;
+        font-size: 15px !important;
+    }
+    .active {
+        font-family: NewsGothicBT-BoldCondensed,sans-serif !important
+    }
+
+    .athlete-page-master-parent li {
+        list-style: none !important;
+    }
+
+    .athlete-page-master-parent .modal-dialog {
+        width: 100% !important;
+    }
+
+
+    .modal_athelete_para_and_list {
+        flex-direction: column;
+    }
+
+    .img-responsive {
+        max-width: 100% !important;
+    }
+
+    .athlete-subhead {
+        text-transform: uppercase !important;
+        margin-bottom: 0 !important;
+    }
+
+
+    .youtube-picture:before {
+        content: "";
+        background-image: url(https://www.giro.com/on/demandware.static/-/Sites-giro-Library/default/dw07d66648/images/icons/video_play_button_icon.png);
+        background-size: 80px 80px;
+        opacity: .8;
+        display: block;
+        height: 80px;
+        width: 80px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 5;
+    }
+
+    .youtube-picture-override:before {
+        content: "";
+        background-image: url(https://www.giro.com/on/demandware.static/-/Sites-giro-Library/default/dw07d66648/images/icons/video_play_button_icon.png);
+        background-size: 80px 80px;
+        opacity: .8;
+        display: block;
+        height: 80px;
+        width: 80px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 5;
+    }
+
+    .youtube-picture-override:hover:before {
+        transition: all .1s ease;
+        background-size: 90px 90px;
+        opacity: 1;
+        display: block;
+        height: 90px;
+        width: 90px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%)
+    }
+
+    .youtube-picture:hover:before {
+        transition: all .1s ease;
+        background-size: 90px 90px;
+        opacity: 1;
+        display: block;
+        height: 90px;
+        width: 90px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%)
+    }
+
+    .athlete-page-master-parent label {
+        font-family: NewsGothicBT-Bold, sans-serif !important;
+    }
+
+    .instagram-handle {
+        font-family: NewsGothicBT-Roman, sans-serif !important;
+        margin-bottom: 16px;
+    }
+
+    /* //MOBILE// */
+    @media screen and (max-width: 768px) {
+        .athlete-name-and-para h3 {
+            font-size: 32px !important;
+            line-height: 45.6px !important;
+            color: #777777 !important;
+            padding-bottom: 27px;
+            margin-bottom: 0px !important;
+            padding-top: 50px;
+        }
+
+        .athlete-grid-image {
+            padding-bottom: 20px;
+        }
+
+        .athlete-grid-image-last {
+            padding-bottom: 60px;
+        }
+
+        .modal-para {
+            font-size: 13px !important;
+            line-height: 26px !important;
+            padding-bottom: 26px;
+        }
+
+        .modal-show-container {
+            background-color: #f1f1f1;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .active-category-headline {
+            font-size: 32px !important;
+            padding-bottom: 34px;
+            color: #919191 !important
+        }
+
+        .athlete-subhead {
+            font-size: 13px !important;
+            line-height: 18px !important;
+            margin-bottom: 0px !important;
+            PADDING-BOTTOM: 34PX;
+        }
+
+        .athlete-name {
+            font-size: 20px !important;
+            line-height: 24px !important;
+            MARGIN-BOTTOM: 0PX !important;
+            padding-bottom: 10px;
+            margin-top: 20px !important;
+        }
+
+        .filter-by-button {
+            width: 90%;
+            display: flex;
+            background: white;
+            border: 1px solid gray;
+            padding: 15px;
+            text-transform: none;
+            margin-bottom: 30px;
+            justify-content: space-between;
+            line-height: unset;
+        }
+
+        .modal_athelete_para_and_list {
+            padding-bottom: 36px;
+        }
+
+        .filterbutton {
+            padding-left: 20px !important;
+            padding-right: 20px !important;
+        }
+
+        .filterbutton:last-of-type {
+            padding-bottom: 58px !important;
+        }
+
+        .athlete-page-master-parent .modal-header {
+            padding: 50px 20px 20px !important;
+        }
+
+        .athlete-page-master-parent .category-description-container h2 {
+            font-size: 32px !important;
+            line-height: 37px !important;
+        }
+
+        .category-description-paragraph-container p {
+            font-size: 13px !important;
+            line-height: 26px !important;
+            padding-bottom: 50px;
+        }
+    }
+
+    /* DESKTOP */
+    @media screen and (min-width: 769px) {
+        .youtube-iframe {
+            height: 723px;
+            width: 100%;
+        }
+
+        .athlete-name {
+            margin-top: 0 !important;
+            padding-top: 16px;
+            margin-bottom: 0px !important;
+            padding-bottom: 8px;
+        }
+
+        .athlete-container {
+            padding-bottom: 33px;
+        }
+
+        .filterbutton {
+            /* font-family: NewsGothicBT-RomanCondensed, sans-serif !important; */
+            font-size: 20px !important;
+            color: #403F3A !important
+        }
+
+        .active-category-headline {
+            font-size: 38px !important;
+            line-height: 45px !important;
+            padding-bottom: 30px;
+            color: #919191 !important
+        }
+
+        .filter-by-button {
+            width: 15%;
+            line-height: 21px !important;
+            padding: 0;
+            text-transform: uppercase;
+            background: white;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+
+        }
+
+        .filter-by-button span {
+            font-size: 20px !important;
+            font-family: NewsGothicBT-RomanCondensed, sans-serif !important;
+            color: #403F3A !important
+        }
+
+        .category-description-container {
+            max-width: 900px !important;
+            padding-bottom: 100px;
+        }
+
+        .athlete-page-master-parent .category-description-container h2 {
+            font-size: 38px !important;
+            padding-bottom: 28px;
+            line-height: 45px !important;
+            margin-bottom: 0 !important;
+            padding-top: 112px;
+            margin-top: 0 !important;
+        }
+
+        .category-description-paragraph-container {
+            font-size: 13px !important;
+            line-height: 26px !important;
+        }
+
+        .athlete-name-and-para h3 {
+            font-size: 38px !important;
+            padding-bottom: 28px;
+            font-family: NewsGothicBT-RomanCondensed, sans-serif !important;
+        }
+
+        .athlete-name-and-para .modal-para {
+            font-size: 13px !important;
+            line-height: 26px !important;
+            padding-bottom: 150px;
+        }
+
+        .modal-show-container {
+            background-color: #f1f1f1;
+            padding: 45px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .modal_athelete_para_and_list {
+            padding-top: 70px;
+            padding-left: 120px;
+            padding-bottom: 0px;
+        }
+
+        .filter-by {
+            padding-bottom: 44px;
+        }
+    }
+</style>
+<main class="athlete-page-master-parent">
+    <section class="top-hero-category-above-tabs-container">
+        <div class="category-youtube-hero-container">
+            <video width="100%" id="vidsplash" preload="auto" playsinline autoplay muted loop class="w-100">
+                <source class="default-video-loop"
+                    src="https://wp.giro.com/wp-content/uploads/2021/03/Giro_Flashpoint_LandingPage_web_032921.mp4"
+                    type="video/mp4" alt="Giro Video">
+            </video>
+        </div>
+        <div class="category-description-container container">
+            <h2>GIRO SPORT DESIGN ATHLETE/TEAMS</h2>
+            <div class="category-description-paragraph-container">
+                <p>
+                    Giro Sport Design athletes redefine the boundaries of sport while pushing past their own limits.
+                    Whether they’re soloing to a summit finish victory, throwing new shapes in a local jib session, or
+                    effortlessly speeding through the gnarliest rock garden that would have most picking the B-line,
+                    these riders’ dedication to their craft is unrivaled. Get to know these future legends and
+                    innovators, go inside the team bus, and learn a bit more about the riders who embody the Giro spirit
+                    of independence, perseverance and freedom.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="filter-by container d-flex justify-content-between dropdown">
+        <!-- Button trigger modal -->
+        <button type="button" class="filter-by-button " data-target="#exampleModalCenter">
+            <span>Filter By:</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-filter collapse" viewBox="0 0 16 16">
+                <path
+                    d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z" />
+            </svg>
+        </button>
+        <div class="filter-button-container-menu w-100 align-items-center" id="exampleModalCenter" tabindex="-1"
+            role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog-mobile w-100" role="document">
+                <div class="modal-content-mobile w-100 d-flex justify-content-between">
+                    <div class="modal-header collapse">
+                        <div>
+                            <h6>Filter By</h6>
+                        </div>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        </button>
+                    </div>
+                    <a class="filterbutton" id="RoadCyclingFilterButton" data-dismiss="modal">Road Cycling</a>
+                    <a class="filterbutton" id="MountainBikeFilterButton" data-dismiss="modal">Mountain Bike</a>
+                    <a class="filterbutton" id="GravelFilterButton" data-dismiss="modal">Gravel</a>
+                    <a class="filterbutton" id="CyclocrossFilterButton" data-dismiss="modal">Cyclocross</a>
+                    <a class="filterbutton" id="SnowBoardFilterButton" data-dismiss="modal">Snowboard</a>
+                    <a class="filterbutton" id="SkiFilterButton" data-dismiss="modal">Ski</a>
+                    <a class="filterbutton" id="AlpineFilterButton" data-dismiss="modal">Alpine</a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <div class="container">
+        <h6 class="active-category-headline"></h6>
+        <section class="active-category row"></section>
+    </div>
+</main>
