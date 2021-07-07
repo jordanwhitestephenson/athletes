@@ -6,26 +6,117 @@
         <h2>Events in Action</h2>
         <button v-on:click="addCount()">Add</button>
         <butto v-on:click="counter--">Remove</button>
-            <p>Result: {{ counter }}</p>
+            <p>Result: {{ counter }}</p>\
+
+
+
+            <main class="athlete-page-master-parent">
+                <section class="top-hero-category-above-tabs-container">
+                    <div class="category-youtube-hero-container">
+                        <video width="100%" id="vidsplash" preload="auto" playsinline autoplay muted loop class="w-100">
+                            <source class="default-video-loop"
+                                src="https://wp.giro.com/wp-content/uploads/2021/03/Giro_Flashpoint_LandingPage_web_032921.mp4"
+                                type="video/mp4" alt="Giro Video">
+                        </video>
+                    </div>
+                    <div class="category-description-container container">
+                        <h2>GIRO SPORT DESIGN ATHLETE/TEAMS</h2>
+                        <div class="category-description-paragraph-container">
+                            <p>
+                                Giro Sport Design athletes redefine the boundaries of sport while pushing past their own
+                                limits.
+                                Whether they’re soloing to a summit finish victory, throwing new shapes in a local jib
+                                session, or
+                                effortlessly speeding through the gnarliest rock garden that would have most picking the
+                                B-line,
+                                these riders’ dedication to their craft is unrivaled. Get to know these future legends
+                                and
+                                innovators, go inside the team bus, and learn a bit more about the riders who embody the
+                                Giro spirit
+                                of independence, perseverance and freedom.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section class="filter-by container d-flex justify-content-between dropdown">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="filter-by-button " data-target="#exampleModalCenter">
+                        <span>Filter By:</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-filter collapse" viewBox="0 0 16 16">
+                            <path
+                                d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z" />
+                        </svg>
+                    </button>
+                    <div class="filter-button-container-menu w-100 align-items-center" id="exampleModalCenter"
+                        tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog-mobile w-100" role="document">
+                            <div class="modal-content-mobile w-100 d-flex justify-content-between">
+                                <div class="modal-header collapse">
+                                    <div>
+                                        <h6>Filter By</h6>
+                                    </div>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    </button>
+                                </div>
+                                <a class="filterbutton" id="RoadCyclingFilterButton" data-dismiss="modal">Road
+                                    Cycling</a>
+                                <a class="filterbutton" id="MountainBikeFilterButton" data-dismiss="modal">Mountain
+                                    Bike</a>
+                                <a class="filterbutton" id="GravelFilterButton" data-dismiss="modal">Gravel</a>
+                                <a class="filterbutton" id="CyclocrossFilterButton" data-dismiss="modal">Cyclocross</a>
+                                <a class="filterbutton" id="SnowBoardFilterButton" data-dismiss="modal">Snowboard</a>
+                                <a class="filterbutton" id="SkiFilterButton" data-dismiss="modal">Ski</a>
+                                <a class="filterbutton" id="AlpineFilterButton" data-dismiss="modal">Alpine</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+                <div class="container">
+                    <h6 class="active-category-headline"></h6>
+                    <section class="active-category row"></section>
+                    <div v-for="athlete in athletes" class="athlete-container inline-block col-6  col-lg-3"
+                        :key="athlete.id">
+                        <div class="">
+                            <!-- <img class="athelte-grid-photo img-responsive"
+                                :src="'images/landing-pages/'+athlete.ATHLETE_GRID_IMAGE+'?$staticlink$'" alt=""> -->
+                            <h2 class="athlete-name">{{athlete.ATHLETE_NAME_HEADLIME}}</h2>
+                            <p class="athlete-subhead">{{athlete.ATHLETE_MOBILE}}</p>
+                        </div>
+                    </div>`
+                </div>
+            </main>
     </section>
 </body>
 
 <script src="https://unpkg.com/vue@next"></script>
-<script src="https://jordanwhitestephenson.github.io/athletes/athletedata.js"></script>
 
 
 <script type="text/javascript">
 
     const app = Vue.createApp({
         created() {
-            // Simple GET request using fetch
-            fetch("https://jordanwhitestephenson.github.io/athletes/athletedata.js")
-                .then(response => console.log(response))
-
+            // GET request using fetch with error handling
+            fetch("https://jordanwhitestephenson.github.io/athletes/data/athletedataset.json")
+                .then(async response => {
+                    const data = await response.json();
+                    if (!response.ok) {
+                        const error = (data && data.message) || response.statusText;
+                        return Promise.reject(error);
+                    }
+                    this.athletes = data;
+                })
+                .catch(error => {
+                    console.error("There was an error!", error);
+                });
         },
+
         data() {
             return {
                 counter: 0,
+                athletes: [],
+
             };
         },
         methods: {
