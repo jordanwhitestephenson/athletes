@@ -586,4 +586,4 @@ const athleteData = [
     },
 ]
 
-console.log(athleteData.map(item => JSON.stringify(item) ) )
+return athleteData
