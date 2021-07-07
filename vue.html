@@ -79,8 +79,8 @@
                     <div v-for="athlete in athletes" class="athlete-container inline-block col-6  col-lg-3"
                         :key="athlete.id">
                         <div class="">
-                            <!-- <img class="athelte-grid-photo img-responsive"
-                                :src="'images/landing-pages/'+athlete.ATHLETE_GRID_IMAGE+'?$staticlink$'" alt=""> -->
+                            <img class="athelte-grid-photo img-responsive"
+                                :src="athlete.ATHLETE_GRID_IMAGE" alt="">
                             <h2 class="athlete-name">{{athlete.ATHLETE_NAME_HEADLIME}}</h2>
                             <p class="athlete-subhead">{{athlete.ATHLETE_MOBILE}}</p>
                         </div>
