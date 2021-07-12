@@ -94,7 +94,7 @@
                 <section class="active-category row">
                     <div class="athlete-container d-flex w-100 flex-wrap">
                         <div v-for="(i, index) in Math.ceil(athletes.length / mobileCount)" :key="i.ID" class="w-100">
-                            <div class="d-flex flex-wrap container ">
+                            <div class="d-flex flex-wrap container padding-left-right-0-desktop">
                                 <div v-for="item in athletes.slice((i - 1) * mobileCount, i * mobileCount)"
                                     :class="getMobile ? 'col-6' : 'col-3'">
                                     <div v-bind:id="item.ID" v-on:click="selectModal(item.ID, i)">
@@ -102,9 +102,10 @@
                                             :src="'https://jordanwhitestephenson.github.io/athletes/images/' + item.ATHLETE_GRID_IMAGE"
                                             alt="">
                                         <h2 class="athlete-name">{{item.ATHLETE_NAME_HEADLIME}}</h2>
-                                        <p class="athlete-subhead">{{item.ATHLETE_MOBILE}}</p>
+                                        <p class="athlete-subhead">
+                                            {{getMobile ? item.ATHLETE_MOBILE : item.ATHLETE_HELMET}}</p>
                                     </div>
-                                    <div v-if="selectedAthleteComputed.ID === item.ID"
+                                    <div v-if="selectedAthleteComputed.ID === item.ID && selectedAthleteComputed.FEATURED "
                                         class="d-flex justify-content-center">
                                         <img src="images/landing-pages/Triangle2.png?$staticlink$" />
                                     </div>
@@ -250,13 +251,11 @@
     .athlete-subhead {
         text-transform: uppercase !important;
         margin-bottom: 0 !important;
+        color: #777777 !important;
+        font-family: NewsGothicBT-Bold, sans-serif !important;
     }
 
-    ._athlete-modal {
-        background-color: #F1F1F1;
-        padding: 60px;
-        margin-bottom: 40px;
-    }
+
 
     .youtube-picture:before {
         content: "";
@@ -315,7 +314,8 @@
     }
 
     .athlete-page-master-parent label {
-        font-family: NewsGothicBT-Bold, sans-serif !important;
+        font-family: NewsGothicBT-RomanCondensed, sans !important;
+        color: #403F3A !important
     }
 
     .instagram-handle {
@@ -323,15 +323,30 @@
         margin-bottom: 16px;
     }
 
+    .athlete-name-and-para h3 {
+        font-family: NewsGothicBT-RomanCondensed, sans-serif !important;
+        color: #777777 !important;
+    }
+
     /* //MOBILE// */
     @media screen and (max-width: 768px) {
         .athlete-name-and-para h3 {
             font-size: 32px !important;
             line-height: 45.6px !important;
-            color: #777777 !important;
+
             padding-bottom: 27px;
             margin-bottom: 0px !important;
             padding-top: 50px;
+        }
+
+        .athlete-page-master-parent label {
+            font-size: 20px !important;
+        }
+
+        ._athlete-modal {
+            background-color: #F1F1F1;
+            padding: 20px;
+            margin-bottom: 40px;
         }
 
         .athlete-grid-image {
@@ -431,6 +446,11 @@
             width: 100%;
         }
 
+        .padding-left-right-0-desktop {
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+        }
+
         .athlete-name {
             margin-top: 0 !important;
             padding-top: 16px;
@@ -502,13 +522,18 @@
         .athlete-name-and-para h3 {
             font-size: 38px !important;
             padding-bottom: 28px;
-            font-family: NewsGothicBT-RomanCondensed, sans-serif !important;
         }
 
         .athlete-name-and-para .modal-para {
             font-size: 13px !important;
             line-height: 26px !important;
             padding-bottom: 150px;
+        }
+
+        ._athlete-modal {
+            background-color: #F1F1F1;
+            padding: 60px;
+            margin-bottom: 40px;
         }
 
         .modal-show-container {

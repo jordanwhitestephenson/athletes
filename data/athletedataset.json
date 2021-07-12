@@ -206,7 +206,7 @@
     "ATHLETE_NAME_HEADLIME": "Sam Hockenhull",
     "ATHLETE_HELMET": "Disciple HELMET, Tyrant HELMET, QUARTER HELMET",
     "ATHLETE_MOBILE": "Tyrant HELMET",
-    "FEATURED": true,
+    "FEATURED": false,
     "ATHLETE_GRID_IMAGE": "Sam-Hockenhull.jpg"
   },
   {
