@@ -32,9 +32,11 @@
                     </div>
                 </div>
             </section>
-            <section class="filter-by container d-flex justify-content-between dropdown">
+            <section class="filter-by container d-flex justify-content-between dropdown align-items-center">
                 <!-- Button trigger modal -->
-                <button type="button" class="filter-by-button " data-target="#exampleModalCenter">
+                <button type="button"
+                    :class="getMobile ? 'btn btn-filter filter-results filter-by-button'  : 'filter-by-button' "
+                    data-toggle="modal" @click="showModalClick" data-target="#exampleModalCenter">
                     <span>Filter By:</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                         class="bi bi-filter collapse" viewBox="0 0 16 16">
@@ -42,62 +44,83 @@
                             d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z" />
                     </svg>
                 </button>
-                <div class="filter-button-container-menu w-100 align-items-center" id="exampleModalCenter" tabindex="-1"
-                    role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog-mobile w-100" role="document">
-                        <div class="modal-content-mobile w-100 d-flex justify-content-between">
-                            <div class="modal-header collapse">
+                <div :class="getMobile && getModalState ? 'filter-button-container-menu w-100 align-items-center modal' : getMobile && !getModalState ? 'filter-button-container-menu w-100 align-items-center collapse' : 'filter-button-container-menu w-100 align-items-center'"
+                    id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+                    aria-hidden="true">
+                    <div :class="getMobile && getModalState ? 'modal-dialog w-100' : ''" role="document">
+                        <div
+                            :class="getMobile ? 'modal-content w-100 d-flex justify-content-between' : 'w-100 d-flex justify-content-between'">
+                            <div :class="getMobile ? 'modal-header' : 'collapse'">
                                 <div>
                                     <h6>Filter By</h6>
                                 </div>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <button type="button" class="close" data-dismiss="modal" @click="closeModal"
+                                    aria-label="Close">
                                 </button>
                             </div>
-                            <a class="filterbutton" v-on:click="changeCategory('Road-Cycling')"
-                                id="RoadCyclingFilterButton" data-dismiss="modal">Road
-                                Cycling</a>
-                            <a class="filterbutton" v-on:click="changeCategory('Mountain-Bike')"
-                                id="MountainBikeFilterButton" data-dismiss="modal">Mountain
-                                Bike</a>
-                            <a class="filterbutton" v-on:click="changeCategory('GRAVEL')" id="GravelFilterButton"
-                                data-dismiss="modal">Gravel</a>
-                            <a class="filterbutton" v-on:click="changeCategory('CYLOCROSS')" id="CyclocrossFilterButton"
-                                data-dismiss="modal">Cyclocross</a>
-                            <a class="filterbutton" v-on:click="changeCategory('SNOWBOARD')" id="SnowBoardFilterButton"
-                                data-dismiss="modal">Snowboard</a>
-                            <a class="filterbutton" v-on:click="changeCategory('SKI')" id="SkiFilterButton"
-                                data-dismiss="modal">Ski</a>
-                            <a class="filterbutton" v-on:click="changeCategory('ALPINE')" id="AlpineFilterButton"
-                                data-dismiss="modal">Alpine</a>
+                            <a v-bind:class="activeCategory === 'Road-Cycling' ? 'active filterbutton' : 'filterbutton'"
+                                v-on:click="changeCategory('Road-Cycling')" id="RoadCyclingFilterButton"
+                                data-dismiss="modal">Road
+                                Cycling {{ getMobile ? '(' + roadCyclingCount + ')' : ''}}</a>
+                            <a v-bind:class="activeCategory === 'Mountain-Bike' ? 'active filterbutton' : 'filterbutton'"
+                                v-on:click="changeCategory('Mountain-Bike')" id="MountainBikeFilterButton"
+                                data-dismiss="modal">Mountain
+                                Bike {{ getMobile ? '(' + mountainBikeCount + ')' : ''}}</a>
+                            <a v-bind:class="activeCategory === 'GRAVEL' ? 'active filterbutton' : 'filterbutton'"
+                                v-on:click="changeCategory('GRAVEL')" id="GravelFilterButton"
+                                data-dismiss="modal">Gravel {{ getMobile ? '(' + GravelCount + ')' : ''}}</a>
+                            <a v-bind:class="activeCategory === 'CYLOCROSS' ? 'active filterbutton' : 'filterbutton'"
+                                v-on:click="changeCategory('CYLOCROSS')" id="CyclocrossFilterButton"
+                                data-dismiss="modal">Cyclocross {{ getMobile ? '(' + CyclocrossCount + ')' : ''}}</a>
+                            <a v-bind:class="activeCategory === 'SNOWBOARD' ? 'active filterbutton' : 'filterbutton'"
+                                v-on:click="changeCategory('SNOWBOARD')" id="SnowBoardFilterButton"
+                                data-dismiss="modal">Snowboard {{ getMobile ? '(' + SnowboardCount + ')' : ''}}</a>
+                            <a v-bind:class="activeCategory === 'SKI' ? 'active filterbutton' : 'filterbutton'"
+                                v-on:click="changeCategory('SKI')" id="SkiFilterButton" data-dismiss="modal">Ski
+                                {{ getMobile ? '(' + SkiCount + ')' : ''}}</a>
+                            <a v-bind:class="activeCategory === 'ALPINE' ? 'active filterbutton' : 'filterbutton'"
+                                v-on:click="changeCategory('ALPINE')" id="AlpineFilterButton"
+                                data-dismiss="modal">Alpine {{ getMobile ? '(' + AlpineCount + ')' : ''}}</a>
                         </div>
                     </div>
                 </div>
 
             </section>
-            <div class="container">
-                <h6 class="active-category-headline"></h6>
+            <div>
+                <div class="container">
+                    <h6 class="active-category-headline">{{activeCategoryHeadline}}</h6>
+                </div>
+
                 <section class="active-category row">
                     <div class="athlete-container d-flex w-100 flex-wrap">
-                        <div v-for="athlete in every4thAthlete"
-                            v-bind:class="athlete !== 'modalDesktopDiv' ? 'col-6 col-lg-3' : 'modal-view col-12' "
-                            :key="athlete.ID">
-                            <div v-if="athlete !== 'modalDesktopDiv'" v-bind:id="athlete.ID"
-                                v-on:click="selectModal(athlete.ID)">
-                                <img class="athelte-grid-photo img-responsive"
-                                    :src="'https://jordanwhitestephenson.github.io/athletes/images/' + athlete.ATHLETE_GRID_IMAGE"
-                                    alt="">
-                                <h2 class="athlete-name">{{athlete.ATHLETE_NAME_HEADLIME}}</h2>
-                                <p class="athlete-subhead">{{athlete.ATHLETE_MOBILE}}</p>
+                        <div v-for="(i, index) in Math.ceil(athletes.length / mobileCount)" :key="i.ID" class="w-100">
+                            <div class="d-flex flex-wrap container ">
+                                <div v-for="item in athletes.slice((i - 1) * mobileCount, i * mobileCount)"
+                                    :class="getMobile ? 'col-6' : 'col-3'">
+                                    <div v-bind:id="item.ID" v-on:click="selectModal(item.ID, i)">
+                                        <img class="athelte-grid-photo img-responsive"
+                                            :src="'https://jordanwhitestephenson.github.io/athletes/images/' + item.ATHLETE_GRID_IMAGE"
+                                            alt="">
+                                        <h2 class="athlete-name">{{item.ATHLETE_NAME_HEADLIME}}</h2>
+                                        <p class="athlete-subhead">{{item.ATHLETE_MOBILE}}</p>
+                                    </div>
+                                    <div v-if="selectedAthleteComputed.ID === item.ID"
+                                        class="d-flex justify-content-center">
+                                        <img src="images/landing-pages/Triangle2.png?$staticlink$" />
+                                    </div>
+
+                                </div>
                             </div>
-
-
-                            <div v-else class="_athlete-modal grey_background col-sm-12 padding-0">
-                                <div v-if="selectedAthlete.FEATURED">
+                            <div v-if="selectedAthlete.FEATURED && selectedIndex === i "
+                                class=" grey_background _athlete-modal ">
+                                <div class="container">
                                     <div class="arrow-first"></div>
                                     <div class="row d-flex">
                                         <div class="athlete-name-and-para col-xs-12 col-md-8">
-                                            <h3> {{selectedAthlete.ATHLETE_NAME_HEADLIME}}</h3>
-                                            <p class="modal-para">${selectedAthlete.MODAL_ATHLETE_PARAGRAPH}</p>
+                                            <h3> {{selectedAthleteComputed.ATHLETE_NAME_HEADLIME}}</h3>
+                                            <p class="modal-para">
+                                                {{selectedAthleteComputed.MODAL_ATHLETE_PARAGRAPH}}
+                                            </p>
                                         </div>
                                         <div class="modal_athelete_para_and_list d-flex col-xs-12 col-md-4">
                                             <li>
@@ -105,15 +128,16 @@
                                                     HOMETOWN:
                                                 </label>
                                                 <p class="MODAL_ATHELETE_HOMTEOWN">
-                                                    {{selectedAthlete.MODAL_ATHELETE_HOMETOWN}}
+                                                    {{selectedAthleteComputed.MODAL_ATHELETE_HOMETOWN}}
                                                 </p>
                                             </li>
                                             <li class="flex flex-column">
                                                 <label>
                                                     INSTAGRAM HANDLE:
                                                 </label>
-                                                <a class="instagram-handle" v-bind:href="athlete.INSTAGRAMHREF">
-                                                    {{selectedAthlete.INSTAGRAM}}
+                                                <a class="instagram-handle"
+                                                    v-bind:href="selectedAthleteComputed.INSTAGRAMHREF">
+                                                    {{selectedAthleteComputed.INSTAGRAM}}
                                                 </a>
                                             </li>
                                             <li>
@@ -121,75 +145,388 @@
                                                     FAVORITE ICECREAM:
                                                 </label>
                                                 <p>
-                                                    {{selectedAthlete.ICECREAM}}
+                                                    {{selectedAthleteComputed.ICECREAM}}
                                                 </p>
                                             </li>
                                         </div>
                                     </div>
-                                    <div class="modal_athlete_youtube_container collapse">
-                                        <div class="youtube-picture youtube-click-image" id="${item.YOUTUBEDEFAULTID}">
-                                            <img class="img-responsive" onclick="" alt="${item.ATHLETE_NAME_HEADLIME}"
-                                                src="images/landing-pages/${item.YOUTUBEIMAGE}?$staticlink$" />
+                                    <div class="modal_athlete_youtube_container">
+                                        <div class="youtube-picture youtube-click-image"
+                                            v-on:click="viewVideo(selectedAthleteComputed.YOUTUBEDEFAULTID)"
+                                            v-bind:id="selectedAthleteComputed.YOUTUBEDEFAULTID"
+                                            v-bind:class="videoPlay && youtubeID === selectedAthleteComputed.YOUTUBEDEFAULTID ? 'collapse' : ''">
+                                            <img class="img-responsive"
+                                                v-bind:alt="selectedAthleteComputed.ATHLETE_NAME_HEADLIME"
+                                                :src="'https://jordanwhitestephenson.github.io/athletes/images/' + selectedAthlete.YOUTUBEIMAGE" />
                                         </div>
-                                        <iframe width="560" height="315" id="selectedAthlete.YOUTUBEID"
-                                            class="collapse youtube-iframe"
-                                            :src="'https://www.youtube.com/embed/' + selectedAthlete.YOUTUBE"
+                                        <iframe width="560"
+                                            v-if="videoPlay && youtubeID === selectedAthleteComputed.YOUTUBEDEFAULTID"
+                                            height="315" v-bind:id="selectedAthleteComputed.YOUTUBEID"
+                                            class="youtube-iframe"
+                                            :src="'https://www.youtube.com/embed/' + selectedAthleteComputed.YOUTUBE + '?&autoplay=1'"
                                             title="YouTube video player" frameborder="0"
                                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                             allowfullscreen></iframe>
-                                        <p class="youtube-label">{{selectedAthlete.YOUTUBELABEL}} </p>
+                                        <p class="youtube-label">{{selectedAthleteComputed.YOUTUBELABEL}} </p>
                                     </div>
                                     <div class="modal_athlete_image_row row">
                                         <div class="col-xs-12 col-md-4 ">
                                             <img class="athlete-grid-image img-responsive"
                                                 v-bind:alt="selectedAthlete.ATHLETE_NAME_HEADLIME"
-                                                :src="'https://jordanwhitestephenson.github.io/athletes/images/' + selectedAthlete.MODALGRIDIMAGE1" />
+                                                :src="'https://jordanwhitestephenson.github.io/athletes/images/' + selectedAthleteComputed.MODALGRIDIMAGE1" />
                                         </div>
                                         <div class="col-xs-12 col-md-4 ">
                                             <img class="athlete-grid-image img-responsive"
                                                 v-bind:alt="selectedAthlete.ATHLETE_NAME_HEADLIME"
-                                                :src="'https://jordanwhitestephenson.github.io/athletes/images/' + selectedAthlete.MODALGRIDIMAGE2"/>
+                                                :src="'https://jordanwhitestephenson.github.io/athletes/images/' + selectedAthleteComputed.MODALGRIDIMAGE2" />
                                         </div>
                                         <div class="col-xs-12 col-md-4 ">
                                             <img class="athlete-grid-image-last img-responsive"
                                                 v-bind:alt="selectedAthlete.ATHLETE_NAME_HEADLIME"
-                                                :src="'https://jordanwhitestephenson.github.io/athletes/images/' + selectedAthlete.MODALGRIDIMAGE3"
-                                         />
+                                                :src="'https://jordanwhitestephenson.github.io/athletes/images/' + selectedAthleteComputed.MODALGRIDIMAGE3" />
                                         </div>
                                     </div>
                                 </div>
-                            </div>d
-
-
-
+                            </div>
                         </div>
                     </div>
-
-
-
-
-
-
-
-
                 </section>
             </div>
         </main>
     </section>
 </body>
 <style>
-    .fade-enter-active,
-    .fade-leave-active {
-        transition: opacity 0.5s ease;
+    .modal-show-container {
+        background-color: #f1f1f1;
+        margin-bottom: 20px;
+        position: relative;
     }
 
-    .fade-enter-from,
-    .fade-leave-to {
-        opacity: 0;
+    .filterbutton {
+        text-transform: uppercase !important;
+        padding: 0 !important;
+        background: none !important;
+        color: #777777 !important;
+        font-family: NewsGothicBT-RomanCondensed, sans-serif !important;
+    }
+
+    .active.filterbutton {
+        font-family: NewsGothicBT-BoldCondensed, sans-serif !important;
+    }
+
+    .youtube-label {
+        text-transform: uppercase;
+        padding-top: 15px;
+        padding-bottom: 30px;
+        margin-bottom: 0px !important;
+        font-size: 15px !important;
+    }
+
+    .active {
+        font-family: NewsGothicBT-BoldCondensed, sans-serif !important
+    }
+
+    .athlete-page-master-parent li {
+        list-style: none !important;
+    }
+
+    .athlete-page-master-parent .modal-dialog {
+        width: 100% !important;
+    }
+
+    .athlete-name {
+        font-family: NewsGothicBT-BoldCondensed, sans-serif !important;
+        color: #403f3a !important
+    }
+
+    .modal_athelete_para_and_list {
+        flex-direction: column;
     }
 
     .img-responsive {
         max-width: 100% !important;
+    }
+
+    .athlete-subhead {
+        text-transform: uppercase !important;
+        margin-bottom: 0 !important;
+    }
+
+    ._athlete-modal {
+        background-color: #F1F1F1;
+        padding: 60px;
+        margin-bottom: 40px;
+    }
+
+    .youtube-picture:before {
+        content: "";
+        background-image: url(https://www.giro.com/on/demandware.static/-/Sites-giro-Library/default/dw07d66648/images/icons/video_play_button_icon.png);
+        background-size: 80px 80px;
+        opacity: .8;
+        display: block;
+        height: 80px;
+        width: 80px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 5;
+    }
+
+    .youtube-picture-override:before {
+        content: "";
+        background-image: url(https://www.giro.com/on/demandware.static/-/Sites-giro-Library/default/dw07d66648/images/icons/video_play_button_icon.png);
+        background-size: 80px 80px;
+        opacity: .8;
+        display: block;
+        height: 80px;
+        width: 80px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 5;
+    }
+
+    .youtube-picture-override:hover:before {
+        transition: all .1s ease;
+        background-size: 90px 90px;
+        opacity: 1;
+        display: block;
+        height: 90px;
+        width: 90px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%)
+    }
+
+    .youtube-picture:hover:before {
+        transition: all .1s ease;
+        background-size: 90px 90px;
+        opacity: 1;
+        display: block;
+        height: 90px;
+        width: 90px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%)
+    }
+
+    .athlete-page-master-parent label {
+        font-family: NewsGothicBT-Bold, sans-serif !important;
+    }
+
+    .instagram-handle {
+        font-family: NewsGothicBT-Roman, sans-serif !important;
+        margin-bottom: 16px;
+    }
+
+    /* //MOBILE// */
+    @media screen and (max-width: 768px) {
+        .athlete-name-and-para h3 {
+            font-size: 32px !important;
+            line-height: 45.6px !important;
+            color: #777777 !important;
+            padding-bottom: 27px;
+            margin-bottom: 0px !important;
+            padding-top: 50px;
+        }
+
+        .athlete-grid-image {
+            padding-bottom: 20px;
+        }
+
+        .athlete-grid-image-last {
+            padding-bottom: 60px;
+        }
+
+        .modal-para {
+            font-size: 13px !important;
+            line-height: 26px !important;
+            padding-bottom: 26px;
+        }
+
+        .modal-show-container {
+            background-color: #f1f1f1;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .active-category-headline {
+            font-size: 32px !important;
+            padding-bottom: 34px;
+            color: #919191 !important
+        }
+
+        .athlete-subhead {
+            font-size: 13px !important;
+            line-height: 18px !important;
+            margin-bottom: 0px !important;
+            PADDING-BOTTOM: 34PX;
+        }
+
+        .athlete-name {
+            font-size: 20px !important;
+            line-height: 24px !important;
+            MARGIN-BOTTOM: 0PX !important;
+            padding-bottom: 10px;
+            margin-top: 20px !important;
+        }
+
+        .filter-by-button {
+            width: 90%;
+            display: flex;
+            background: white;
+            border: 1px solid gray;
+            padding: 15px;
+            text-transform: none;
+            margin-bottom: 30px;
+            justify-content: space-between;
+            line-height: unset;
+        }
+
+        .modal_athelete_para_and_list {
+            padding-bottom: 36px;
+        }
+
+        .filterbutton {
+            padding-left: 20px !important;
+            padding-right: 20px !important;
+        }
+
+        .filterbutton:last-of-type {
+            padding-bottom: 58px !important;
+        }
+
+        .athlete-page-master-parent .modal-header {
+            padding: 50px 20px 20px !important;
+        }
+
+        .athlete-page-master-parent .category-description-container h2 {
+            font-size: 32px !important;
+            line-height: 37px !important;
+        }
+
+        .category-description-paragraph-container p {
+            font-size: 13px !important;
+            line-height: 26px !important;
+            padding-bottom: 50px;
+        }
+
+        .btn-filter {
+            border: 1px solid #e4e4e5;
+            text-align: left;
+            height: 40px;
+            padding: 10px 12px;
+            background: url(https://www.giro.com/on/demandware.static/Sites-giro-Site/-/default/v1626105621044/images/svg-icons/icon-refine-search.svg) no-repeat 95% 50%;
+        }
+    }
+
+    /* DESKTOP */
+    @media screen and (min-width: 769px) {
+        .youtube-iframe {
+            height: 723px;
+            width: 100%;
+        }
+
+        .athlete-name {
+            margin-top: 0 !important;
+            padding-top: 16px;
+            margin-bottom: 0px !important;
+            padding-bottom: 8px;
+        }
+
+        .athlete-container {
+            padding-bottom: 33px;
+        }
+
+        .filterbutton {
+            /* font-family: NewsGothicBT-RomanCondensed, sans-serif !important; */
+            font-size: 20px !important;
+            color: #403F3A !important
+        }
+
+        .active-category-headline {
+            font-size: 38px !important;
+            line-height: 45px !important;
+            padding-bottom: 30px;
+            color: #919191 !important
+        }
+
+        .filter-by-button {
+            width: 15%;
+            line-height: 21px !important;
+            padding: 0;
+            text-transform: uppercase;
+            background: white;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+
+        }
+
+        .filter-by-button span {
+            font-size: 20px !important;
+            font-family: NewsGothicBT-RomanCondensed, sans-serif !important;
+            color: #403F3A !important
+        }
+
+        .category-description-container {
+            max-width: 900px !important;
+            padding-bottom: 100px;
+        }
+
+        .athlete-subhead {
+            font-size: 13px !important;
+            line-height: 18px !important;
+            margin-bottom: 0px !important;
+            PADDING-BOTTOM: 34PX;
+        }
+
+        .athlete-page-master-parent .category-description-container h2 {
+            font-size: 38px !important;
+            padding-bottom: 28px;
+            line-height: 45px !important;
+            margin-bottom: 0 !important;
+            padding-top: 112px;
+            margin-top: 0 !important;
+        }
+
+        .category-description-paragraph-container {
+            font-size: 13px !important;
+            line-height: 26px !important;
+        }
+
+        .athlete-name-and-para h3 {
+            font-size: 38px !important;
+            padding-bottom: 28px;
+            font-family: NewsGothicBT-RomanCondensed, sans-serif !important;
+        }
+
+        .athlete-name-and-para .modal-para {
+            font-size: 13px !important;
+            line-height: 26px !important;
+            padding-bottom: 150px;
+        }
+
+        .modal-show-container {
+            background-color: #f1f1f1;
+            padding: 45px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .modal_athelete_para_and_list {
+            padding-top: 70px;
+            padding-left: 120px;
+            padding-bottom: 0px;
+        }
+
+        .filter-by {
+            padding-bottom: 44px;
+        }
     }
 </style>
 <script src="https://unpkg.com/vue@next"></script>
@@ -199,6 +536,14 @@
 
     const app = Vue.createApp({
         created() {
+            if (window.matchMedia("(max-width: 768px)").matches) {
+                this.isMobile = true
+                this.mobileCount = 2
+            }
+            else {
+                this.isMobile = false
+                this.mobileCount = 4
+            }
             // GET request using fetch with error handling
             fetch("https://jordanwhitestephenson.github.io/athletes/data/athletedataset.json")
                 .then(async response => {
@@ -207,7 +552,7 @@
                         const error = (data && data.message) || response.statusText;
                         return Promise.reject(error);
                     }
-                    this.athletes = data;
+                    this.athletes = data.sort((a, b) => a.ATHLETE_NAME_HEADLIME < b.ATHLETE_NAME_HEADLIME ? -1 : 1)
                     this.originalAthleteArray = data.sort((a, b) => a.ATHLETE_NAME_HEADLIME < b.ATHLETE_NAME_HEADLIME ? -1 : 1)
 
                 })
@@ -215,27 +560,70 @@
                     console.error("There was an error!", error);
                 });
 
+
         },
         computed: {
             every4thAthlete() {
-                var splicedArray = this.athletes
-                for (var itemIndex = 4; itemIndex < this.athletes.length; itemIndex += 5) {
-                    this.athletes.splice(itemIndex, 0, "modalDesktopDiv");
-                }
+
+
+                // for (var itemIndex = 4; itemIndex < this.athletes.length; itemIndex += 5) {
+                //     this.athletes.splice(itemIndex, 0, "modalDesktopDiv");
+                // }
                 return this.athletes
+            },
+            selectedAthleteComputed() {
+                return this.selectedAthlete
+            },
+            selectedYoutube() {
+                return this.selectedYoutube
+            },
+            getMobile() {
+                return this.isMobile
+            },
+            getModalState() {
+                return this.showModal
+            },
+            roadCyclingCount() {
+                return this.originalAthleteArray.filter(item => item.TYPE === "Road-Cycling").length
+            },
+            mountainBikeCount() {
+                return this.originalAthleteArray.filter(item => item.TYPE === "Mountain-Bike").length
+            },
+            CyclocrossCount() {
+                return this.originalAthleteArray.filter(item => item.TYPE === "CYLOCROSS").length
+            },
+            GravelCount() {
+                return this.originalAthleteArray.filter(item => item.TYPE === "GRAVEL").length
+            },
+            SnowboardCount() {
+                return this.originalAthleteArray.filter(item => item.TYPE === "SNOWBOARD").length
+            },
+            SkiCount() {
+                return this.originalAthleteArray.filter(item => item.TYPE === "SKI").length
+            },
+            AlpineCount() {
+                return this.originalAthleteArray.filter(item => item.TYPE === "ALPINE").length
             }
+
         },
 
         data() {
             return {
+                showModal: false,
                 counter: 0,
                 athletes: [],
                 activeCategory: "",
                 selectedAthlete: "",
                 originalAthleteArray: [],
                 selectedVideo: "",
+                selectedIndex: "",
                 loaded: true,
                 rows: [],
+                videoPlay: false,
+                youtubeID: "",
+                activeCategoryHeadline: "ALL ATHLETES",
+                isMobile: false,
+                mobileCount: 0,
                 videoLoops:
                 {
                     DEFAULT_VIDEO_LOOP: "https://wp.giro.com/wp-content/uploads/2021/03/Giro_Flashpoint_LandingPage_web_032921.mp4",
@@ -244,7 +632,7 @@
                     CYCLOCROSS_VIDEO_LOOP: "https://wp.giro.com/wp-content/uploads/2021/07/AthletePageCyclocrossEdit.mp4",
                     GRAVEL_VIDEO_LOOP: "https://wp.giro.com/wp-content/uploads/2021/07/AthletePageGravelEdit.mp4",
                     ALPINE_VIDEO_LOOP: "https://wp.giro.com/wp-content/uploads/2021/07/AthletePageSkiRacingEdit.mp4",
-                    SNOWBOARD_VIDEO_LOOP: "https://www.dropbox.com/sh/a14cqg26vbee4ar/AAB9wkLiXp-N_fUsj2Xy6IANa?dl=0&preview=AthletePageSnowboardEdit.mov",
+                    SNOWBOARD_VIDEO_LOOP: "https://wp.giro.com/wp-content/uploads/2021/07/AthletePageSnowboardEdit.mp4",
                     MOUNTAINBIKE_VIDEO_LOOP: "https://wp.giro.com/wp-content/uploads/2021/07/AthletePageSnowboardEdit.mp4"
                 }
 
@@ -253,13 +641,22 @@
         },
 
         methods: {
-            addCount() {
-                this.counter++
+            viewVideo(id) {
+                this.videoPlay = true
+                this.youtubeID = id
             },
-            selectModal(athleteID) {
+            selectModal(athleteID, i) {
                 this.selectedAthlete = this.athletes.filter(type => type.ID === athleteID)[0]
-                console.log(this.selectedAthlete)
+                this.selectedIndex = i
             },
+            closeModal() {
+                this.showModal = false
+            },
+            showModalClick() {
+                console.log('YAAA!')
+                this.showModal = true
+            },
+
 
             changeCategory(category) {
                 this.activeCategory = category
@@ -267,30 +664,38 @@
                 if (this.activeCategory === "Road-Cycling") {
                     this.athletes = this.originalAthleteArray.filter(type => type.TYPE === "Road-Cycling").sort((a, b) => a.ATHLETE_NAME_HEADLIME < b.ATHLETE_NAME_HEADLIME ? -1 : 1)
                     this.selectedVideo = this.videoLoops.ROADCYCLING_VIDEO_LOOP
+                    this.activeCategoryHeadline = "Road Cycling Athletes"
                 }
                 if (this.activeCategory === "Mountain-Bike") {
                     this.athletes = this.originalAthleteArray.filter(type => type.TYPE === "Mountain-Bike").sort((a, b) => a.ATHLETE_NAME_HEADLIME < b.ATHLETE_NAME_HEADLIME ? -1 : 1)
                     this.selectedVideo = this.videoLoops.MOUNTAINBIKE_VIDEO_LOOP
+                    this.activeCategoryHeadline = "MOUNTAIN BIKE ATHLETES"
                 }
                 if (this.activeCategory === "GRAVEL") {
                     this.athletes = this.originalAthleteArray.filter(type => type.TYPE === "GRAVEL").sort((a, b) => a.ATHLETE_NAME_HEADLIME < b.ATHLETE_NAME_HEADLIME ? -1 : 1)
                     this.selectedVideo = this.videoLoops.GRAVEL_VIDEO_LOOP
+                    this.activeCategoryHeadline = "GRAVEL ATHLETES"
                 }
                 if (this.activeCategory === "CYLOCROSS") {
                     this.athletes = this.originalAthleteArray.filter(type => type.TYPE === "CYLOCROSS").sort((a, b) => a.ATHLETE_NAME_HEADLIME < b.ATHLETE_NAME_HEADLIME ? -1 : 1)
                     this.selectedVideo = this.videoLoops.CYCLOCROSS_VIDEO_LOOP
+                    this.activeCategoryHeadline = "CYCLOCROSS ATHLETES"
+
                 }
                 if (this.activeCategory === "SNOWBOARD") {
                     this.athletes = this.originalAthleteArray.filter(type => type.TYPE === "SNOWBOARD").sort((a, b) => a.ATHLETE_NAME_HEADLIME < b.ATHLETE_NAME_HEADLIME ? -1 : 1)
                     this.selectedVideo = this.videoLoops.SNOWBOARD_VIDEO_LOOP
+                    this.activeCategoryHeadline = "SNOWBOARD TEAM"
                 }
                 if (this.activeCategory === "SKI") {
                     this.athletes = this.originalAthleteArray.filter(type => type.TYPE === "SKI").sort((a, b) => a.ATHLETE_NAME_HEADLIME < b.ATHLETE_NAME_HEADLIME ? -1 : 1)
                     this.selectedVideo = this.videoLoops.SKI_VIDEO_LOOP
+                    this.activeCategoryHeadline = "SKI TEAM"
                 }
                 if (this.activeCategory === "ALPINE") {
                     this.athletes = this.originalAthleteArray.filter(type => type.TYPE === "ALPINE").sort((a, b) => a.ATHLETE_NAME_HEADLIME < b.ATHLETE_NAME_HEADLIME ? -1 : 1)
                     this.selectedVideo = this.videoLoops.ALPINE_VIDEO_LOOP
+                    this.activeCategoryHeadline = "ALPINE RACE TEAM"
                 }
             }
         }
