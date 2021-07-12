@@ -1,95 +1,197 @@
 <body>
     <header>
-        <h1>Vue Events</h1>
     </header>
     <section id="events">
-        <h2>Events in Action</h2>
-        <button v-on:click="addCount()">Add</button>
-        <butto v-on:click="counter--">Remove</button>
-            <p>Result: {{ counter }}</p>\
+        <main class="athlete-page-master-parent">
+            <section class="top-hero-category-above-tabs-container">
+                <div class="category-youtube-hero-container">
+                    <transition name="fade">
+                        <video :src="selectedVideo" width="100%" id="vidsplash" preload="auto" playsinline autoplay
+                            muted loop class="w-100" v-if="loaded">
+                    </transition>
 
 
-
-            <main class="athlete-page-master-parent">
-                <section class="top-hero-category-above-tabs-container">
-                    <div class="category-youtube-hero-container">
-                        <video width="100%" id="vidsplash" preload="auto" playsinline autoplay muted loop class="w-100">
-                            <source class="default-video-loop"
-                                src="https://wp.giro.com/wp-content/uploads/2021/03/Giro_Flashpoint_LandingPage_web_032921.mp4"
-                                type="video/mp4" alt="Giro Video">
-                        </video>
-                    </div>
-                    <div class="category-description-container container">
-                        <h2>GIRO SPORT DESIGN ATHLETE/TEAMS</h2>
-                        <div class="category-description-paragraph-container">
-                            <p>
-                                Giro Sport Design athletes redefine the boundaries of sport while pushing past their own
-                                limits.
-                                Whether they’re soloing to a summit finish victory, throwing new shapes in a local jib
-                                session, or
-                                effortlessly speeding through the gnarliest rock garden that would have most picking the
-                                B-line,
-                                these riders’ dedication to their craft is unrivaled. Get to know these future legends
-                                and
-                                innovators, go inside the team bus, and learn a bit more about the riders who embody the
-                                Giro spirit
-                                of independence, perseverance and freedom.
-                            </p>
-                        </div>
-                    </div>
-                </section>
-                <section class="filter-by container d-flex justify-content-between dropdown">
-                    <!-- Button trigger modal -->
-                    <button type="button" class="filter-by-button " data-target="#exampleModalCenter">
-                        <span>Filter By:</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-filter collapse" viewBox="0 0 16 16">
-                            <path
-                                d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z" />
-                        </svg>
-                    </button>
-                    <div class="filter-button-container-menu w-100 align-items-center" id="exampleModalCenter"
-                        tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                        <div class="modal-dialog-mobile w-100" role="document">
-                            <div class="modal-content-mobile w-100 d-flex justify-content-between">
-                                <div class="modal-header collapse">
-                                    <div>
-                                        <h6>Filter By</h6>
-                                    </div>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    </button>
-                                </div>
-                                <a class="filterbutton" id="RoadCyclingFilterButton" data-dismiss="modal">Road
-                                    Cycling</a>
-                                <a class="filterbutton" id="MountainBikeFilterButton" data-dismiss="modal">Mountain
-                                    Bike</a>
-                                <a class="filterbutton" id="GravelFilterButton" data-dismiss="modal">Gravel</a>
-                                <a class="filterbutton" id="CyclocrossFilterButton" data-dismiss="modal">Cyclocross</a>
-                                <a class="filterbutton" id="SnowBoardFilterButton" data-dismiss="modal">Snowboard</a>
-                                <a class="filterbutton" id="SkiFilterButton" data-dismiss="modal">Ski</a>
-                                <a class="filterbutton" id="AlpineFilterButton" data-dismiss="modal">Alpine</a>
-                            </div>
-                        </div>
-                    </div>
-
-                </section>
-                <div class="container">
-                    <h6 class="active-category-headline"></h6>
-                    <section class="active-category row"></section>
-                    <div v-for="athlete in athletes" class="athlete-container inline-block col-6  col-lg-3"
-                        :key="athlete.id">
-                        <div class="">
-                            <img class="athelte-grid-photo img-responsive"
-                                :src="athlete.ATHLETE_GRID_IMAGE" alt="">
-                            <h2 class="athlete-name">{{athlete.ATHLETE_NAME_HEADLIME}}</h2>
-                            <p class="athlete-subhead">{{athlete.ATHLETE_MOBILE}}</p>
-                        </div>
-                    </div>`
+                    </video>
                 </div>
-            </main>
+                <div class="category-description-container container">
+                    <h2>GIRO SPORT DESIGN ATHLETE/TEAMS</h2>
+                    <div class="category-description-paragraph-container">
+                        <p>
+                            Giro Sport Design athletes redefine the boundaries of sport while pushing past their own
+                            limits.
+                            Whether they’re soloing to a summit finish victory, throwing new shapes in a local jib
+                            session, or
+                            effortlessly speeding through the gnarliest rock garden that would have most picking the
+                            B-line,
+                            these riders’ dedication to their craft is unrivaled. Get to know these future legends
+                            and
+                            innovators, go inside the team bus, and learn a bit more about the riders who embody the
+                            Giro spirit
+                            of independence, perseverance and freedom.
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <section class="filter-by container d-flex justify-content-between dropdown">
+                <!-- Button trigger modal -->
+                <button type="button" class="filter-by-button " data-target="#exampleModalCenter">
+                    <span>Filter By:</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-filter collapse" viewBox="0 0 16 16">
+                        <path
+                            d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z" />
+                    </svg>
+                </button>
+                <div class="filter-button-container-menu w-100 align-items-center" id="exampleModalCenter" tabindex="-1"
+                    role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog-mobile w-100" role="document">
+                        <div class="modal-content-mobile w-100 d-flex justify-content-between">
+                            <div class="modal-header collapse">
+                                <div>
+                                    <h6>Filter By</h6>
+                                </div>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                </button>
+                            </div>
+                            <a class="filterbutton" v-on:click="changeCategory('Road-Cycling')"
+                                id="RoadCyclingFilterButton" data-dismiss="modal">Road
+                                Cycling</a>
+                            <a class="filterbutton" v-on:click="changeCategory('Mountain-Bike')"
+                                id="MountainBikeFilterButton" data-dismiss="modal">Mountain
+                                Bike</a>
+                            <a class="filterbutton" v-on:click="changeCategory('GRAVEL')" id="GravelFilterButton"
+                                data-dismiss="modal">Gravel</a>
+                            <a class="filterbutton" v-on:click="changeCategory('CYLOCROSS')" id="CyclocrossFilterButton"
+                                data-dismiss="modal">Cyclocross</a>
+                            <a class="filterbutton" v-on:click="changeCategory('SNOWBOARD')" id="SnowBoardFilterButton"
+                                data-dismiss="modal">Snowboard</a>
+                            <a class="filterbutton" v-on:click="changeCategory('SKI')" id="SkiFilterButton"
+                                data-dismiss="modal">Ski</a>
+                            <a class="filterbutton" v-on:click="changeCategory('ALPINE')" id="AlpineFilterButton"
+                                data-dismiss="modal">Alpine</a>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+            <div class="container">
+                <h6 class="active-category-headline"></h6>
+                <section class="active-category row">
+                    <div class="athlete-container d-flex w-100 flex-wrap">
+                        <div v-for="athlete in every4thAthlete"
+                            v-bind:class="athlete !== 'modalDesktopDiv' ? 'col-6 col-lg-3' : 'modal-view col-12' "
+                            :key="athlete.ID">
+                            <div v-if="athlete !== 'modalDesktopDiv'" v-bind:id="athlete.ID"
+                                v-on:click="selectModal(athlete.ID)">
+                                <img class="athelte-grid-photo img-responsive"
+                                    :src="'https://jordanwhitestephenson.github.io/athletes/images/' + athlete.ATHLETE_GRID_IMAGE"
+                                    alt="">
+                                <h2 class="athlete-name">{{athlete.ATHLETE_NAME_HEADLIME}}</h2>
+                                <p class="athlete-subhead">{{athlete.ATHLETE_MOBILE}}</p>
+                            </div>
+
+
+                            <div v-else class="_athlete-modal grey_background col-sm-12 padding-0">
+                                <div v-if="selectedAthlete.FEATURED">
+                                    <div class="arrow-first"></div>
+                                    <div class="row d-flex">
+                                        <div class="athlete-name-and-para col-xs-12 col-md-8">
+                                            <h3> {{selectedAthlete.ATHLETE_NAME_HEADLIME}}</h3>
+                                            <p class="modal-para">${selectedAthlete.MODAL_ATHLETE_PARAGRAPH}</p>
+                                        </div>
+                                        <div class="modal_athelete_para_and_list d-flex col-xs-12 col-md-4">
+                                            <li>
+                                                <label>
+                                                    HOMETOWN:
+                                                </label>
+                                                <p class="MODAL_ATHELETE_HOMTEOWN">
+                                                    {{selectedAthlete.MODAL_ATHELETE_HOMETOWN}}
+                                                </p>
+                                            </li>
+                                            <li class="flex flex-column">
+                                                <label>
+                                                    INSTAGRAM HANDLE:
+                                                </label>
+                                                <a class="instagram-handle" v-bind:href="athlete.INSTAGRAMHREF">
+                                                    {{selectedAthlete.INSTAGRAM}}
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <label>
+                                                    FAVORITE ICECREAM:
+                                                </label>
+                                                <p>
+                                                    {{selectedAthlete.ICECREAM}}
+                                                </p>
+                                            </li>
+                                        </div>
+                                    </div>
+                                    <div class="modal_athlete_youtube_container collapse">
+                                        <div class="youtube-picture youtube-click-image" id="${item.YOUTUBEDEFAULTID}">
+                                            <img class="img-responsive" onclick="" alt="${item.ATHLETE_NAME_HEADLIME}"
+                                                src="images/landing-pages/${item.YOUTUBEIMAGE}?$staticlink$" />
+                                        </div>
+                                        <iframe width="560" height="315" id="selectedAthlete.YOUTUBEID"
+                                            class="collapse youtube-iframe"
+                                            :src="'https://www.youtube.com/embed/' + selectedAthlete.YOUTUBE"
+                                            title="YouTube video player" frameborder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowfullscreen></iframe>
+                                        <p class="youtube-label">{{selectedAthlete.YOUTUBELABEL}} </p>
+                                    </div>
+                                    <div class="modal_athlete_image_row row">
+                                        <div class="col-xs-12 col-md-4 ">
+                                            <img class="athlete-grid-image img-responsive"
+                                                v-bind:alt="selectedAthlete.ATHLETE_NAME_HEADLIME"
+                                                :src="'https://jordanwhitestephenson.github.io/athletes/images/' + selectedAthlete.MODALGRIDIMAGE1" />
+                                        </div>
+                                        <div class="col-xs-12 col-md-4 ">
+                                            <img class="athlete-grid-image img-responsive"
+                                                v-bind:alt="selectedAthlete.ATHLETE_NAME_HEADLIME"
+                                                :src="'https://jordanwhitestephenson.github.io/athletes/images/' + selectedAthlete.MODALGRIDIMAGE2"/>
+                                        </div>
+                                        <div class="col-xs-12 col-md-4 ">
+                                            <img class="athlete-grid-image-last img-responsive"
+                                                v-bind:alt="selectedAthlete.ATHLETE_NAME_HEADLIME"
+                                                :src="'https://jordanwhitestephenson.github.io/athletes/images/' + selectedAthlete.MODALGRIDIMAGE3"
+                                         />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>d
+
+
+
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+                </section>
+            </div>
+        </main>
     </section>
 </body>
+<style>
+    .fade-enter-active,
+    .fade-leave-active {
+        transition: opacity 0.5s ease;
+    }
 
+    .fade-enter-from,
+    .fade-leave-to {
+        opacity: 0;
+    }
+
+    .img-responsive {
+        max-width: 100% !important;
+    }
+</style>
 <script src="https://unpkg.com/vue@next"></script>
 
 
@@ -106,22 +208,90 @@
                         return Promise.reject(error);
                     }
                     this.athletes = data;
+                    this.originalAthleteArray = data.sort((a, b) => a.ATHLETE_NAME_HEADLIME < b.ATHLETE_NAME_HEADLIME ? -1 : 1)
+
                 })
                 .catch(error => {
                     console.error("There was an error!", error);
                 });
+
+        },
+        computed: {
+            every4thAthlete() {
+                var splicedArray = this.athletes
+                for (var itemIndex = 4; itemIndex < this.athletes.length; itemIndex += 5) {
+                    this.athletes.splice(itemIndex, 0, "modalDesktopDiv");
+                }
+                return this.athletes
+            }
         },
 
         data() {
             return {
                 counter: 0,
                 athletes: [],
+                activeCategory: "",
+                selectedAthlete: "",
+                originalAthleteArray: [],
+                selectedVideo: "",
+                loaded: true,
+                rows: [],
+                videoLoops:
+                {
+                    DEFAULT_VIDEO_LOOP: "https://wp.giro.com/wp-content/uploads/2021/03/Giro_Flashpoint_LandingPage_web_032921.mp4",
+                    ROADCYCLING_VIDEO_LOOP: "https://wp.giro.com/wp-content/uploads/2021/07/AthletePageRoadEdit.mp4",
+                    SKI_VIDEO_LOOP: "https://wp.giro.com/wp-content/uploads/2021/07/AthletePageSkiEdit.mp4",
+                    CYCLOCROSS_VIDEO_LOOP: "https://wp.giro.com/wp-content/uploads/2021/07/AthletePageCyclocrossEdit.mp4",
+                    GRAVEL_VIDEO_LOOP: "https://wp.giro.com/wp-content/uploads/2021/07/AthletePageGravelEdit.mp4",
+                    ALPINE_VIDEO_LOOP: "https://wp.giro.com/wp-content/uploads/2021/07/AthletePageSkiRacingEdit.mp4",
+                    SNOWBOARD_VIDEO_LOOP: "https://www.dropbox.com/sh/a14cqg26vbee4ar/AAB9wkLiXp-N_fUsj2Xy6IANa?dl=0&preview=AthletePageSnowboardEdit.mov",
+                    MOUNTAINBIKE_VIDEO_LOOP: "https://wp.giro.com/wp-content/uploads/2021/07/AthletePageSnowboardEdit.mp4"
+                }
+
 
             };
         },
+
         methods: {
             addCount() {
                 this.counter++
+            },
+            selectModal(athleteID) {
+                this.selectedAthlete = this.athletes.filter(type => type.ID === athleteID)[0]
+                console.log(this.selectedAthlete)
+            },
+
+            changeCategory(category) {
+                this.activeCategory = category
+
+                if (this.activeCategory === "Road-Cycling") {
+                    this.athletes = this.originalAthleteArray.filter(type => type.TYPE === "Road-Cycling").sort((a, b) => a.ATHLETE_NAME_HEADLIME < b.ATHLETE_NAME_HEADLIME ? -1 : 1)
+                    this.selectedVideo = this.videoLoops.ROADCYCLING_VIDEO_LOOP
+                }
+                if (this.activeCategory === "Mountain-Bike") {
+                    this.athletes = this.originalAthleteArray.filter(type => type.TYPE === "Mountain-Bike").sort((a, b) => a.ATHLETE_NAME_HEADLIME < b.ATHLETE_NAME_HEADLIME ? -1 : 1)
+                    this.selectedVideo = this.videoLoops.MOUNTAINBIKE_VIDEO_LOOP
+                }
+                if (this.activeCategory === "GRAVEL") {
+                    this.athletes = this.originalAthleteArray.filter(type => type.TYPE === "GRAVEL").sort((a, b) => a.ATHLETE_NAME_HEADLIME < b.ATHLETE_NAME_HEADLIME ? -1 : 1)
+                    this.selectedVideo = this.videoLoops.GRAVEL_VIDEO_LOOP
+                }
+                if (this.activeCategory === "CYLOCROSS") {
+                    this.athletes = this.originalAthleteArray.filter(type => type.TYPE === "CYLOCROSS").sort((a, b) => a.ATHLETE_NAME_HEADLIME < b.ATHLETE_NAME_HEADLIME ? -1 : 1)
+                    this.selectedVideo = this.videoLoops.CYCLOCROSS_VIDEO_LOOP
+                }
+                if (this.activeCategory === "SNOWBOARD") {
+                    this.athletes = this.originalAthleteArray.filter(type => type.TYPE === "SNOWBOARD").sort((a, b) => a.ATHLETE_NAME_HEADLIME < b.ATHLETE_NAME_HEADLIME ? -1 : 1)
+                    this.selectedVideo = this.videoLoops.SNOWBOARD_VIDEO_LOOP
+                }
+                if (this.activeCategory === "SKI") {
+                    this.athletes = this.originalAthleteArray.filter(type => type.TYPE === "SKI").sort((a, b) => a.ATHLETE_NAME_HEADLIME < b.ATHLETE_NAME_HEADLIME ? -1 : 1)
+                    this.selectedVideo = this.videoLoops.SKI_VIDEO_LOOP
+                }
+                if (this.activeCategory === "ALPINE") {
+                    this.athletes = this.originalAthleteArray.filter(type => type.TYPE === "ALPINE").sort((a, b) => a.ATHLETE_NAME_HEADLIME < b.ATHLETE_NAME_HEADLIME ? -1 : 1)
+                    this.selectedVideo = this.videoLoops.ALPINE_VIDEO_LOOP
+                }
             }
         }
     });
