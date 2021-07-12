@@ -2,11 +2,11 @@
   {
     "ID": 1,
     "TYPE": "Road-Cycling",
-    "ATHLETE_NAME_HEADLIME": "USA TRACK TEAM",
+    "ATHLETE_NAME_HEADLIME": "BIKE EXCHANGE MEN’S TEAM",
     "ATHLETE_HELMET": "AEROHEAD HELMET, AETHER HELMET, VANQUISH HELMET",
     "ATHLETE_MOBILE": "AETHER HELMET",
     "FEATURED": false,
-    "ATHLETE_GRID_IMAGE": "images/landing-pages/Bike-Exchange-Men's-Team.jpg?$staticlink$"
+    "ATHLETE_GRID_IMAGE": "Bike-Exchange-Men's-Team.jpg"
   },
   {
     "ID": 2,
