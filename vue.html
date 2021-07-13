@@ -93,7 +93,8 @@
                                     :class="getMobile ? 'col-6' : 'col-3'">
                                     <transition name="fade" mode="out-in">
                                         <div :key="item" v-bind:id="item.ID" v-on:click="selectModal(item.ID, i)">
-                                            <img :src="require(`{item.ATHLETE_GRID_IMAGE}$staticlink`)" alt class="icon" />
+                                            require(`../assets/profile_screens/${filename}`) 
+                                            <img :src="require(`images/landing-pages/${item.ATHLETE_GRID_IMAGE}`)" alt class="icon" />
                                             <img :src="item.ATHLETE_GRID_IMAGE"/>
 
                                             <!-- <img v-bind:src=' "require(images/landing-pages/" + item.ATHLETE_GRID_IMAGE + "?$staticlink$)"' />  -->
