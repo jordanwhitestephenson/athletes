@@ -93,10 +93,7 @@
                                     :class="getMobile ? 'col-6' : 'col-3'">
                                     <transition name="fade" mode="out-in">
                                         <div :key="item" v-bind:id="item.ID" v-on:click="selectModal(item.ID, i)">
-                                            <img :src="images/landing-pages/item.ATHLETE_GRID_IMAGE"/>
-                                            <img :class="item.FEATURED ? 'hoverathlete athelte-grid-photo img-responsive' : 'athelte-grid-photo img-responsive'"
-                                                :src="'https://jordanwhitestephenson.github.io/athletes/images/' + item.ATHLETE_GRID_IMAGE"
-                                                alt="">
+                                        <div class = "TYAAA" v-html="getExampleSRC(item.ID)"></div>
                                             <h2 class="athlete-name">{{item.ATHLETE_NAME_HEADLIME}}</h2>
                                             <p class="athlete-subhead">
                                                 {{getMobile ? item.ATHLETE_MOBILE : item.ATHLETE_HELMET}}</p>
@@ -609,6 +606,7 @@
             getAthletes() {
                 return this.athletes
             },
+    
             selectedAthleteComputed() {
                 return this.selectedAthlete
             },
@@ -681,6 +679,10 @@
         },
 
         methods: {
+            getExampleSRC(id) {
+                var athleteArray = this.athletes.filter(item => item.ID === id)[0]
+                return `<img class = "athelte-grid-photo img-responsive" alt = "${athleteArray.ATHLETE_NAME_HEADLIME}"src = "images/landing-pages/${athleteArray.ATHLETE_GRID_IMAGE}?$staticlink$"/>`
+            },
             viewVideo(id) {
                 this.videoPlay = true
                 this.youtubeID = id
