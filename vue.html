@@ -93,7 +93,7 @@
                                     :class="getMobile ? 'col-6' : 'col-3'">
                                     <transition name="fade" mode="out-in">
                                         <div :key="item" v-bind:id="item.ID" v-on:click="selectModal(item.ID, i)">
-
+                                            <img :src="images/landing-pages/item.ATHLETE_GRID_IMAGE"/>
                                             <img :class="item.FEATURED ? 'hoverathlete athelte-grid-photo img-responsive' : 'athelte-grid-photo img-responsive'"
                                                 :src="'https://jordanwhitestephenson.github.io/athletes/images/' + item.ATHLETE_GRID_IMAGE"
                                                 alt="">
