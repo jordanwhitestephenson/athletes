@@ -5,9 +5,9 @@
         <main class="athlete-page-master-parent">
             <section class="top-hero-category-above-tabs-container">
                 <div class="category-youtube-hero-container">
-                    <transition name="fade">
-                        <video :src="selectedVideo" width="100%" id="vidsplash" preload="auto" playsinline autoplay
-                            muted loop class="w-100" v-if="loaded">
+                    <transition name="fade" mode="out-in">
+                        <video :src="selectedVideo" width="100%" id="vidsplash"  :key="selectedVideo"
+                            playsinline autoplay muted loop class="w-100">
                     </transition>
 
 
@@ -33,16 +33,10 @@
                 </div>
             </section>
             <section class="filter-by container d-flex justify-content-between dropdown align-items-center">
-                <!-- Button trigger modal -->
                 <button type="button"
                     :class="getMobile ? 'btn btn-filter filter-results filter-by-button'  : 'filter-by-button' "
                     data-toggle="modal" @click="showModalClick" data-target="#exampleModalCenter">
                     <span>Filter By:</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-filter collapse" viewBox="0 0 16 16">
-                        <path
-                            d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z" />
-                    </svg>
                 </button>
                 <div :class="getMobile && getModalState ? 'filter-button-container-menu w-100 align-items-center modal' : getMobile && !getModalState ? 'filter-button-container-menu w-100 align-items-center collapse' : 'filter-button-container-menu w-100 align-items-center'"
                     id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
@@ -54,8 +48,7 @@
                                 <div>
                                     <h6>Filter By</h6>
                                 </div>
-                                <button type="button" class="close" data-dismiss="modal" @click="closeModal"
-                                    aria-label="Close">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 </button>
                             </div>
                             <a v-bind:class="activeCategory === 'Road-Cycling' ? 'active filterbutton' : 'filterbutton'"
@@ -93,18 +86,27 @@
 
                 <section class="active-category row">
                     <div class="athlete-container d-flex w-100 flex-wrap">
-                        <div v-for="(i, index) in Math.ceil(athletes.length / mobileCount)" :key="i.ID" class="w-100">
+
+                        <div v-for="(i, index) in Math.ceil(athletes.length / mobileCount)" :key="i" class="w-100">
                             <div class="d-flex flex-wrap container padding-left-right-0-desktop">
                                 <div v-for="item in athletes.slice((i - 1) * mobileCount, i * mobileCount)"
                                     :class="getMobile ? 'col-6' : 'col-3'">
-                                    <div v-bind:id="item.ID" v-on:click="selectModal(item.ID, i)">
-                                        <img class="athelte-grid-photo img-responsive"
-                                            :src="'https://jordanwhitestephenson.github.io/athletes/images/' + item.ATHLETE_GRID_IMAGE"
-                                            alt="">
-                                        <h2 class="athlete-name">{{item.ATHLETE_NAME_HEADLIME}}</h2>
-                                        <p class="athlete-subhead">
-                                            {{getMobile ? item.ATHLETE_MOBILE : item.ATHLETE_HELMET}}</p>
-                                    </div>
+                                    <transition name="fade" mode="out-in">
+                                        <div :key="item" v-bind:id="item.ID" v-on:click="selectModal(item.ID, i)">
+                                            <img :src="require(`{item.ATHLETE_GRID_IMAGE}$staticlink`)" alt class="icon" />
+                                            <img :src="item.ATHLETE_GRID_IMAGE"/>
+
+                                            <!-- <img v-bind:src=' "require(images/landing-pages/" + item.ATHLETE_GRID_IMAGE + "?$staticlink$)"' />  -->
+
+                                            <!-- <img :class="item.FEATURED ? 'hoverathlete athelte-grid-photo img-responsive' : 'athelte-grid-photo img-responsive'"
+                                                :src="'https://jordanwhitestephenson.github.io/athletes/images/' + item.ATHLETE_GRID_IMAGE"
+                                                alt=""> -->
+                                            <h2 class="athlete-name">{{item.ATHLETE_NAME_HEADLIME}}</h2>
+                                            <p class="athlete-subhead">
+                                                {{getMobile ? item.ATHLETE_MOBILE : item.ATHLETE_HELMET}}</p>
+                                        </div>
+                                    </transition>
+
                                     <div v-if="selectedAthleteComputed.ID === item.ID && selectedAthleteComputed.FEATURED "
                                         class="d-flex justify-content-center">
                                         <img src="images/landing-pages/Triangle2.png?$staticlink$" />
@@ -190,6 +192,7 @@
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </section>
             </div>
@@ -209,6 +212,7 @@
         background: none !important;
         color: #777777 !important;
         font-family: NewsGothicBT-RomanCondensed, sans-serif !important;
+        cursor: pointer !important;
     }
 
     .active.filterbutton {
@@ -223,6 +227,17 @@
         font-size: 15px !important;
     }
 
+    .fade-enter-active,
+    .fade-leave-active {
+        transition: all 0.5s ease;
+        
+    }
+
+    .fade-enter-from,
+    .fade-leave-to {
+        opacity: 0;
+    }
+
     .active {
         font-family: NewsGothicBT-BoldCondensed, sans-serif !important
     }
@@ -234,6 +249,7 @@
     .athlete-page-master-parent .modal-dialog {
         width: 100% !important;
     }
+
 
     .athlete-name {
         font-family: NewsGothicBT-BoldCondensed, sans-serif !important;
@@ -552,6 +568,12 @@
         .filter-by {
             padding-bottom: 44px;
         }
+
+        .hoverathlete:hover {
+            box-shadow: 10px 10px 20px 0px rgba(0, 0, 0, 0.5);
+            transition: all .1s ease;
+
+        }
     }
 </style>
 <script src="https://unpkg.com/vue@next"></script>
@@ -634,6 +656,7 @@
 
         data() {
             return {
+                hover: false,
                 showModal: false,
                 counter: 0,
                 athletes: [],
