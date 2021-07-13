@@ -85,22 +85,18 @@
                 </div>
 
                 <section class="active-category row">
-                    <div class="athlete-container d-flex w-100 flex-wrap">
+                    <div v-if="athletes" class="athlete-container d-flex w-100 flex-wrap">
 
-                        <div v-for="(i, index) in Math.ceil(athletes.length / mobileCount)" :key="i" class="w-100">
+                        <div v-for="(i, index) in Math.ceil(getAthletes.length / mobileCount)" :key="i" class="w-100">
                             <div class="d-flex flex-wrap container padding-left-right-0-desktop">
-                                <div v-for="item in athletes.slice((i - 1) * mobileCount, i * mobileCount)"
+                                <div v-for="item in getAthletes.slice((i - 1) * mobileCount, i * mobileCount)"
                                     :class="getMobile ? 'col-6' : 'col-3'">
                                     <transition name="fade" mode="out-in">
                                         <div :key="item" v-bind:id="item.ID" v-on:click="selectModal(item.ID, i)">
-                                            <!-- <img :src="require(`@/xxx/${name}.png`)" alt class="icon" /> -->
-                                            <img :src="item.ATHLETE_GRID_IMAGE"/>
 
-                                            <!-- <img v-bind:src=' "require(images/landing-pages/" + item.ATHLETE_GRID_IMAGE + "?$staticlink$)"' />  -->
-
-                                            <!-- <img :class="item.FEATURED ? 'hoverathlete athelte-grid-photo img-responsive' : 'athelte-grid-photo img-responsive'"
+                                            <img :class="item.FEATURED ? 'hoverathlete athelte-grid-photo img-responsive' : 'athelte-grid-photo img-responsive'"
                                                 :src="'https://jordanwhitestephenson.github.io/athletes/images/' + item.ATHLETE_GRID_IMAGE"
-                                                alt=""> -->
+                                                alt="">
                                             <h2 class="athlete-name">{{item.ATHLETE_NAME_HEADLIME}}</h2>
                                             <p class="athlete-subhead">
                                                 {{getMobile ? item.ATHLETE_MOBILE : item.ATHLETE_HELMET}}</p>
@@ -610,12 +606,7 @@
 
         },
         computed: {
-            every4thAthlete() {
-
-
-                // for (var itemIndex = 4; itemIndex < this.athletes.length; itemIndex += 5) {
-                //     this.athletes.splice(itemIndex, 0, "modalDesktopDiv");
-                // }
+            getAthletes() {
                 return this.athletes
             },
             selectedAthleteComputed() {
@@ -656,6 +647,7 @@
 
         data() {
             return {
+                exampleSRC: "images/landing-pages/Nehemiah-Brown.jpg?$staticlink$",
                 hover: false,
                 showModal: false,
                 counter: 0,
