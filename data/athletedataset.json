@@ -275,7 +275,7 @@
     "ATHLETE_HELMET": "AETHER HELMET, HELIOS HELMET, MANIFEST HELMET, SECTOR SHOE, D’WOOL GLOVE, APPAREL",
     "ATHLETE_MOBILE": "HELIOS HELMET",
     "FEATURED": false,
-    "ATHLETE_GRID_IMAGE": "images/landing-pages/Nehemiah-Brown.jpg?$staticlink$"
+    "ATHLETE_GRID_IMAGE": "require('images/landing-pages/Nehemiah-Brown.jpg?$staticlink$')"
   },
   {
     "ID": 25,
