@@ -6,7 +6,7 @@
     "ATHLETE_HELMET": "AEROHEAD HELMET, AETHER HELMET, VANQUISH HELMET",
     "ATHLETE_MOBILE": "AETHER HELMET",
     "FEATURED": false,
-    "ATHLETE_GRID_IMAGE": "Bike-Exchange-Men's-Team.jpg?$staticlink$"
+    "ATHLETE_GRID_IMAGE": "Bike-Exchange-Men's-Team.jpg"
     
   },
   {
@@ -16,7 +16,7 @@
     "ATHLETE_HELMET": "AEROHEAD HELMET, AETHER HELMET, VANQUISH HELMET",
     "ATHLETE_MOBILE": "AETHER HELMET",
     "FEATURED": false,
-    "ATHLETE_GRID_IMAGE": "Groupama-FDJ.jpg?$staticlink$"
+    "ATHLETE_GRID_IMAGE": "Groupama-FDJ.jpg"
   },
   {
     "ID": 3,
@@ -25,7 +25,7 @@
     "ATHLETE_HELMET": "AEROHEAD HELMET, AETHER HELMET, VANQUISH HELMET",
     "ATHLETE_MOBILE": "AETHER HELMET",
     "FEATURED": false,
-    "ATHLETE_GRID_IMAGE": "Canyon-Sram.jpg?$staticlink$"
+    "ATHLETE_GRID_IMAGE": "Canyon-Sram.jpg"
   },
   {
     "ID": 4,
@@ -34,7 +34,7 @@
     "ATHLETE_HELMET": "AEROHEAD HELMET, AETHER HELMET, VANQUISH HELMET",
     "ATHLETE_MOBILE": "AETHER HELMET",
     "FEATURED": false,
-    "ATHLETE_GRID_IMAGE": "Bike-Exchange-Women's-Team.jpg?$staticlink$"
+    "ATHLETE_GRID_IMAGE": "Bike-Exchange-Women's-Team.jpg"
   },
   {
     "ID": 5,
@@ -43,7 +43,7 @@
     "ATHLETE_HELMET": "AEROHEAD HELMET, AETHER HELMET, VANQUISH HELMET",
     "ATHLETE_MOBILE": "AEROHEAD HELMET",
     "FEATURED": false,
-    "ATHLETE_GRID_IMAGE": "USA-Track-Team.jpg?$staticlink$"
+    "ATHLETE_GRID_IMAGE": "USA-Track-Team.jpg"
   },
   {
     "ID": 6,
@@ -52,7 +52,7 @@
     "ATHLETE_HELMET": "Chamber II SHOE",
     "ATHLETE_MOBILE": "Chamber II SHOE",
     "FEATURED": false,
-    "ATHLETE_GRID_IMAGE": "Aaron-Gwin.jpg?$staticlink$"
+    "ATHLETE_GRID_IMAGE": "Aaron-Gwin.jpg"
   },
   {
     "ID": 7,
@@ -61,7 +61,7 @@
     "ATHLETE_HELMET": "Disciple HELMET, Tyrant HELMET, MANIFEST HELMET, Riddance SHOE, BLOK MTB GOGGLE",
     "ATHLETE_MOBILE": "MANIFEST HELMET",
     "FEATURED": false,
-    "ATHLETE_GRID_IMAGE": "Ace-Hayden.jpg?$staticlink$"
+    "ATHLETE_GRID_IMAGE": "Ace-Hayden.jpg"
   },
   {
     "ID": 8,
@@ -70,7 +70,7 @@
     "ATHLETE_HELMET": "Disciple HELMET, Tyrant HELMET, Quarter HELMET, Riddance SHOE",
     "ATHLETE_MOBILE": "Disciple HELMET",
     "FEATURED": false,
-    "ATHLETE_GRID_IMAGE": "Adolf-Silva.jpg?$staticlink$"
+    "ATHLETE_GRID_IMAGE": "Adolf-Silva.jpg"
   },
   {
     "ID": 9,
@@ -79,7 +79,7 @@
     "ATHLETE_HELMET": "Disciple HELMET, Tyrant HELMET, MANIFEST HELMET, Quarter HELMET, Blok MTB GOGGLE",
     "ATHLETE_MOBILE": "Disciple HELMET",
     "FEATURED": false,
-    "ATHLETE_GRID_IMAGE": "Alex-Volokhov.jpg?$staticlink$"
+    "ATHLETE_GRID_IMAGE": "Alex-Volokhov.jpg"
   },
   {
     "ID": 10,
@@ -88,7 +88,7 @@
     "ATHLETE_HELMET": "Disciple HELMET, Tyrant HELMET, Quarter HELMET, Riddance SHOE",
     "ATHLETE_MOBILE": "Disciple HELMET",
     "FEATURED": false,
-    "ATHLETE_GRID_IMAGE": "Brendan-Howey.jpg?$staticlink$"
+    "ATHLETE_GRID_IMAGE": "Brendan-Howey.jpg"
   },
   {
     "ID": 11,
@@ -97,7 +97,7 @@
     "ATHLETE_HELMET": "Disciple HELMET, Tyrant HELMET, Quarter HELMET, Riddance SHOE, Blok MTB GOGGLE",
     "ATHLETE_MOBILE": "Disciple HELMET",
     "FEATURED": false,
-    "ATHLETE_GRID_IMAGE": "Carson-Storch.jpg?$staticlink$"
+    "ATHLETE_GRID_IMAGE": "Carson-Storch.jpg"
   },
   {
     "ID": 12,
@@ -106,7 +106,7 @@
     "ATHLETE_HELMET": "MANIFEST HELMET, Tyrant HELMET, RIDDANCE SHOE",
     "ATHLETE_MOBILE": "MANIFEST HELMET",
     "FEATURED": false,
-    "ATHLETE_GRID_IMAGE": "Chris-Akrigg.jpg?$staticlink$"
+    "ATHLETE_GRID_IMAGE": "Chris-Akrigg.jpg"
   },
   {
     "ID": 13,
@@ -115,7 +115,7 @@
     "ATHLETE_HELMET": "Disciple HELMET, Tyrant HELMET, Manifest HELMET, Quarter HELMET, Riddance SHOE",
     "ATHLETE_MOBILE": "Tyrant HELMET",
     "FEATURED": false,
-    "ATHLETE_GRID_IMAGE": "Graham-Agassiz.jpg?$staticlink$"
+    "ATHLETE_GRID_IMAGE": "Graham-Agassiz.jpg"
   },
   {
     "ID": 14,
@@ -124,20 +124,20 @@
     "ATHLETE_HELMET": "Disciple HELMET, Tyrant HELMET, Quarter helmet",
     "ATHLETE_MOBILE": "Tyrant HELMET",
     "FEATURED": true,
-    "ATHLETE_GRID_IMAGE": "Josh-Bryceland-Ratboy.jpg?$staticlink$",
+    "ATHLETE_GRID_IMAGE": "Josh-Bryceland-Ratboy.jpg",
     "MODAL_ATHLETE_PARAGRAPH": "You might not know Josh Bryceland by his real name, but chances are you know Ratboy’s style. Born in Manchester, Ratboy entered his first MTB race at the age of 10. By 17, he was the Junior World Cup Series Champion. Rat went on to take two UCI Mountain Bike World Cup victories and won the overall title in 2014. In 2016 he left DH racing behind and tackled EWS, Crankworx and Fest Series events, before starting 50:01 with Josh Loosedog Lewis, Steve Peat and Sam Dale. With this crew, Rat’s influence has only continued to grow and his playful and effortless style is as instantly recognizable as his infectious grin.",
     "MODAL_ATHELETE_HOMETOWN": "Manchester, UK",
     "INSTAGRAM": "@tonio_ratley",
     "INSTAGRAMHREF": "https://www.instagram.com/tonio_ratley/",
     "ICECREAM": "Spilfamint Swirl",
-    "YOUTUBEIMAGE": "Josh-Bryceland-Feature-Video-Slot.jpg?$staticlink$",
+    "YOUTUBEIMAGE": "Josh-Bryceland-Feature-Video-Slot.jpg",
     "YOUTUBEDEFAULTID": "Josh-Bryceland-Photo-Click",
     "YOUTUBEID": "Josh-Bryceland-Youtube-Container",
     "YOUTUBE": "CUW9Rw3HKcM",
     "YOUTUBELABEL": "Distant Relatives - 50to01 Visits Barcelona",
-    "MODALGRIDIMAGE1": "Josh-Bryceland-Feature-Image-1.jpg?$staticlink$",
-    "MODALGRIDIMAGE2": "Josh-Bryceland-Feature-Image-2.jpg?$staticlink$",
-    "MODALGRIDIMAGE3": "Josh-Bryceland-Feature-Image-3.jpg?$staticlink$"
+    "MODALGRIDIMAGE1": "Josh-Bryceland-Feature-Image-1.jpg",
+    "MODALGRIDIMAGE2": "Josh-Bryceland-Feature-Image-2.jpg",
+    "MODALGRIDIMAGE3": "Josh-Bryceland-Feature-Image-3.jpg"
   },
   {
     "ID": 15,
@@ -146,20 +146,20 @@
     "ATHLETE_HELMET": "Disciple HELMET, Tyrant HELMET, quarter helmet, Riddance SHOE",
     "ATHLETE_MOBILE": "Tyrant HELMET",
     "FEATURED": true,
-    "ATHLETE_GRID_IMAGE": "Josh-Lewis-Loosedog.jpg?$staticlink$",
+    "ATHLETE_GRID_IMAGE": "Josh-Lewis-Loosedog.jpg",
     "MODAL_ATHLETE_PARAGRAPH": "When Josh Lewis (Loosedog) first started racing downhill, the Sheffield-born, Sheffield-bred rider caught the attention of another local legend Steve Peat, who mentored Loose as he tackled the DH scene. Fast forward a few years, and Loose, together with Peat, Josh “Ratboy” Bryceland and Sam Dale, created the massively influential and always entertaining 50:01 crew. Loose still races sometimes, but it’s his joyful creativity in his riding, along with ability to ride anything and anywhere, that captures audiences and sets him and his 50:01 crew apart. Whether it’s MTB, BMX, skate, or singing, Loose is truly one of a kind.",
     "MODAL_ATHELETE_HOMETOWN": "Sheffield, UK",
     "INSTAGRAM": "@loosedoglewis",
     "INSTAGRAMHREF": "https://www.instagram.com/loosedoglewis/",
     "ICECREAM": "Hempamint Chip",
-    "YOUTUBEIMAGE": "Josh-Lewis-Feature-Video-Slot.jpg?$staticlink$",
+    "YOUTUBEIMAGE": "Josh-Lewis-Feature-Video-Slot.jpg",
     "YOUTUBEDEFAULTID": "Josh-Lewis-Photo-Click",
     "YOUTUBEID": "Josh-Lewis-Youtube-Container",
     "YOUTUBE": "CUW9Rw3HKcM",
     "YOUTUBELABEL": "Distant Relatives - 50to01 Visits Barcelona",
-    "MODALGRIDIMAGE1": "Josh-Lewis-Feature-Image-1.jpg?$staticlink$",
-    "MODALGRIDIMAGE2": "Josh-Lewis-Feature-Image-2.jpg?$staticlink$",
-    "MODALGRIDIMAGE3": "Josh-Lewis-Feature-Image-3.jpg?$staticlink$"
+    "MODALGRIDIMAGE1": "Josh-Lewis-Feature-Image-1.jpg",
+    "MODALGRIDIMAGE2": "Josh-Lewis-Feature-Image-2.jpg",
+    "MODALGRIDIMAGE3": "Josh-Lewis-Feature-Image-3.jpg"
   },
   {
     "ID": 16,
@@ -168,20 +168,20 @@
     "ATHLETE_HELMET": "Disciple HELMET, Tyrant HELMET, Manifest HELMET, Quarter HELMET, Riddance SHOE",
     "ATHLETE_MOBILE": "Disciple HELMET",
     "FEATURED": true,
-    "ATHLETE_GRID_IMAGE": "Kurt-Sorge.jpg?$staticlink$",
+    "ATHLETE_GRID_IMAGE": "Kurt-Sorge.jpg",
     "MODAL_ATHLETE_PARAGRAPH": "Hailing from Nelson, B.C. Canada, Kurt Sorge holds the honor of being the only three-time winner of the coveted Red Bull Rampage title. Growing up and riding the challenging terrain in Nelson prepared Sorge to become one of the all-time legends in freeride, but it was his years of constant progression that took him to the top. His riding has sent him all over the globe and allowed him to take in some epic surf spots, too. Still living in Nelson, Sorge spends countless hours building new lines on his property, and in winter you will find him sledding in the backcountry.",
     "MODAL_ATHELETE_HOMETOWN": "Nelson B.C., Canada",
     "INSTAGRAM": "@kurtsorge",
     "INSTAGRAMHREF": "https://www.instagram.com/kurtsorge/",
     "ICECREAM": "If I had a 1,000,000 flavors",
-    "YOUTUBEIMAGE": "Kurt-Sorge-Feature-Video-Slot.jpg?$staticlink$",
+    "YOUTUBEIMAGE": "Kurt-Sorge-Feature-Video-Slot.jpg",
     "YOUTUBEDEFAULTID": "Kurt-Photo-Click",
     "YOUTUBEID": "Kurt-Youtube-Container",
     "YOUTUBE": "CUW9Rw3HKcM",
     "YOUTUBELABEL": "Distant Relatives - 50to01 Visits Barcelona",
-    "MODALGRIDIMAGE1": "Kurt-Sorge-Feature-Image-1.jpg?$staticlink$",
-    "MODALGRIDIMAGE2": "Kurt-Sorge-Feature-Image-2.jpg?$staticlink$",
-    "MODALGRIDIMAGE3": "Kurt-Sorge-Feature-Image-3.jpg?$staticlink$"
+    "MODALGRIDIMAGE1": "Kurt-Sorge-Feature-Image-1.jpg",
+    "MODALGRIDIMAGE2": "Kurt-Sorge-Feature-Image-2.jpg",
+    "MODALGRIDIMAGE3": "Kurt-Sorge-Feature-Image-3.jpg"
   },
   {
     "ID": 17,
@@ -190,7 +190,7 @@
     "ATHLETE_HELMET": "Disciple HELMET, Tyrant HELMET, Quarter HELMET, RIDDANCE SHOE",
     "ATHLETE_MOBILE": "Disciple HELMET",
     "FEATURED": false,
-    "ATHLETE_GRID_IMAGE": "Paul-Couderc.jpg?$staticlink$"
+    "ATHLETE_GRID_IMAGE": "Paul-Couderc.jpg"
   },
   {
     "ID": 18,
@@ -199,7 +199,7 @@
     "ATHLETE_HELMET": "Disciple HELMET, Tyrant HELMET, Quarter HELMET, Riddance SHOE, Blok MTB GOGGLE",
     "ATHLETE_MOBILE": "Disciple HELMET",
     "FEATURED": false,
-    "ATHLETE_GRID_IMAGE": "Reed-Boggs.jpg?$staticlink$"
+    "ATHLETE_GRID_IMAGE": "Reed-Boggs.jpg"
   },
   {
     "ID": 19,
@@ -208,7 +208,7 @@
     "ATHLETE_HELMET": "Disciple HELMET, Tyrant HELMET, QUARTER HELMET",
     "ATHLETE_MOBILE": "Tyrant HELMET",
     "FEATURED": false,
-    "ATHLETE_GRID_IMAGE": "Sam-Hockenhull.jpg?$staticlink$"
+    "ATHLETE_GRID_IMAGE": "Sam-Hockenhull.jpg"
   },
   {
     "ID": 20,
@@ -217,20 +217,20 @@
     "ATHLETE_HELMET": "Disciple HELMET, TYRANT HELMET, QUARTER HELMET, Blok MTB GOGGLE",
     "ATHLETE_MOBILE": "Disciple HELMET",
     "FEATURED": true,
-    "ATHLETE_GRID_IMAGE": "Veronique-Sandler.jpg?$staticlink$",
+    "ATHLETE_GRID_IMAGE": "Veronique-Sandler.jpg",
     "MODAL_ATHLETE_PARAGRAPH": "Currently based in Llanfyllin, Wales, mountain bike rider Veronique Sandler (or Vero, for short) is always inspiring awe with her positive attitude, incredible talent, and continued progression—especially when it comes to her no-handers, whips, and crack flips. You’ll most likely find this Kiwi smashing corners, getting technical on dirt jumps, or (now that COVID restrictions are lifting) traveling to various parts of the world to film her latest part, and she doesn’t plan on stopping anytime soon.",
     "MODAL_ATHELETE_HOMETOWN": "Auckland, New Zealand",
     "INSTAGRAM": "@veroniquesandler",
     "INSTAGRAMHREF": "https://www.instagram.com/veroniquesandler/",
     "ICECREAM": "Coconut Sorbet",
-    "YOUTUBEIMAGE": "Veronique-Sandler-Feature-Video-Slot.jpg?$staticlink$",
+    "YOUTUBEIMAGE": "Veronique-Sandler-Feature-Video-Slot.jpg",
     "YOUTUBEDEFAULTID": "Veronique-Sandler-Photo-Click",
     "YOUTUBEID": "Veronique-Sandler-Youtube-Container",
     "YOUTUBE": "Z8siY_RglI0",
     "YOUTUBELABEL": "Distant Relatives - 50to01 Visits Barcelona",
-    "MODALGRIDIMAGE1": "Veronique-Sandler-Feature-Image-1.jpg?$staticlink$",
-    "MODALGRIDIMAGE2": "Veronique-Sandler-Feature-Image-2.jpg?$staticlink$",
-    "MODALGRIDIMAGE3": "Veronique-Sandler-Feature-Image-3.jpg?$staticlink$"
+    "MODALGRIDIMAGE1": "Veronique-Sandler-Feature-Image-1.jpg",
+    "MODALGRIDIMAGE2": "Veronique-Sandler-Feature-Image-2.jpg",
+    "MODALGRIDIMAGE3": "Veronique-Sandler-Feature-Image-3.jpg"
   },
   {
     "ID": 59,
@@ -239,7 +239,7 @@
     "ATHLETE_HELMET": "Disciple HELMET, Tyrant HELMET, Manifest HELMET, Chamber II SHOE",
     "ATHLETE_MOBILE": "Disciple HELMET",
     "FEATURED": false,
-    "ATHLETE_GRID_IMAGE": "Yeti-Fox-Factory.jpg?$staticlink$"
+    "ATHLETE_GRID_IMAGE": "Yeti-Fox-Factory.jpg"
   },
   {
     "ID": 21,
@@ -248,7 +248,7 @@
     "ATHLETE_HELMET": "HELIOS HELMET, MANIFEST HELMET, SECTOR W SHOE, LA DND GLOVE, APPAREL",
     "ATHLETE_MOBILE": "HELIOS HELMET",
     "FEATURED": false,
-    "ATHLETE_GRID_IMAGE": "Amanda-Schaper.jpg?$staticlink$"
+    "ATHLETE_GRID_IMAGE": "Amanda-Schaper.jpg"
   },
   {
     "ID": 22,
@@ -257,7 +257,7 @@
     "ATHLETE_HELMET": "Helios HELMET, Imperial SHOE, APPAREL",
     "ATHLETE_MOBILE": "Helios HELMET",
     "FEATURED": false,
-    "ATHLETE_GRID_IMAGE": "Andrew-Jackson.jpg?$staticlink$"
+    "ATHLETE_GRID_IMAGE": "Andrew-Jackson.jpg"
   },
   {
     "ID": 23,
@@ -266,7 +266,7 @@
     "ATHLETE_HELMET": "HELIOS HELMET, MANIFEST HELMET, EMPIRE VR90 SHOE, IMPERIAL shoe, WOMEN’S XNETIC TRAIL GLOVE, APPAREL",
     "ATHLETE_MOBILE": "HELIOS HELMET",
     "FEATURED": false,
-    "ATHLETE_GRID_IMAGE": "Kathy-Pruitt.jpg?$staticlink$"
+    "ATHLETE_GRID_IMAGE": "Kathy-Pruitt.jpg"
   },
   {
     "ID": 24,
@@ -275,7 +275,7 @@
     "ATHLETE_HELMET": "AETHER HELMET, HELIOS HELMET, MANIFEST HELMET, SECTOR SHOE, D’WOOL GLOVE, APPAREL",
     "ATHLETE_MOBILE": "HELIOS HELMET",
     "FEATURED": false,
-    "ATHLETE_GRID_IMAGE": "Nehemiah-Brown.jpg?$staticlink$"
+    "ATHLETE_GRID_IMAGE": "Nehemiah-Brown.jpg"
   },
   {
     "ID": 25,
@@ -284,7 +284,7 @@
     "ATHLETE_HELMET": "Aether helmet, Empire VR90 shoe",
     "ATHLETE_MOBILE": "Aether helmet, Empire VR90 shoe",
     "FEATURED": false,
-    "ATHLETE_GRID_IMAGE": "Curtis-White.jpg?$staticlink$"
+    "ATHLETE_GRID_IMAGE": "Curtis-White.jpg"
   },
   {
     "ID": 26,
@@ -293,7 +293,7 @@
     "ATHLETE_HELMET": "Aether helmet, Sector W shoe",
     "ATHLETE_MOBILE": "Aether helmet, Sector W shoe",
     "FEATURED": false,
-    "ATHLETE_GRID_IMAGE": "Kaitie-Keough.jpg?$staticlink$"
+    "ATHLETE_GRID_IMAGE": "Kaitie-Keough.jpg"
   },
   {
     "ID": 27,
@@ -302,7 +302,7 @@
     "ATHLETE_HELMET": "Aether helmet, Sector W shoe",
     "ATHLETE_MOBILE": "Aether helmet, Sector W shoe",
     "FEATURED": false,
-    "ATHLETE_GRID_IMAGE": "Clara-Honsinger.jpg?$staticlink$"
+    "ATHLETE_GRID_IMAGE": "Clara-Honsinger.jpg"
   },
   {
     "ID": 28,
@@ -311,7 +311,7 @@
     "ATHLETE_HELMET": "Aether helmet, Sector W shoe",
     "ATHLETE_MOBILE": "Aether helmet, Sector W shoe",
     "FEATURED": false,
-    "ATHLETE_GRID_IMAGE": "Katie-Clousee.jpg?$staticlink$"
+    "ATHLETE_GRID_IMAGE": "Katie-Clousee.jpg"
   },
   {
     "ID": 29,
@@ -320,7 +320,7 @@
     "ATHLETE_HELMET": "Axis goggle",
     "ATHLETE_MOBILE": "Axis goggle",
     "FEATURED": false,
-    "ATHLETE_GRID_IMAGE": "Bryan-Fox.jpg?$staticlink$"
+    "ATHLETE_GRID_IMAGE": "Bryan-Fox.jpg"
   },
   {
     "ID": 30,
@@ -329,7 +329,7 @@
     "ATHLETE_HELMET": "Emerge helmet, Method goggle",
     "ATHLETE_MOBILE": "Emerge helmet, Method goggle",
     "FEATURED": false,
-    "ATHLETE_GRID_IMAGE": "Christian-Haller.jpg?$staticlink$"
+    "ATHLETE_GRID_IMAGE": "Christian-Haller.jpg"
   },
   {
     "ID": 31,
@@ -338,7 +338,7 @@
     "ATHLETE_HELMET": "Emerge helmet, Contour goggle",
     "ATHLETE_MOBILE": "Emerge helmet, Contour goggle",
     "FEATURED": false,
-    "ATHLETE_GRID_IMAGE": "Darcy-Sharpe.jpg?$staticlink$"
+    "ATHLETE_GRID_IMAGE": "Darcy-Sharpe.jpg"
   },
   {
     "ID": 32,
@@ -347,7 +347,7 @@
     "ATHLETE_HELMET": "Emerge helmet, Ella goggle",
     "ATHLETE_MOBILE": "Emerge helmet, Ella goggle",
     "FEATURED": false,
-    "ATHLETE_GRID_IMAGE": "Enni-Rukajarvi.jpg?$staticlink$"
+    "ATHLETE_GRID_IMAGE": "Enni-Rukajarvi.jpg"
   },
   {
     "ID": 33,
@@ -356,7 +356,7 @@
     "ATHLETE_HELMET": "Emerge helmet, Contour goggle",
     "ATHLETE_MOBILE": "Emerge helmet, Contour goggle",
     "FEATURED": false,
-    "ATHLETE_GRID_IMAGE": "Gabe-Ferguson.jpg?$staticlink$"
+    "ATHLETE_GRID_IMAGE": "Gabe-Ferguson.jpg"
   },
   {
     "ID": 34,
@@ -365,7 +365,7 @@
     "ATHLETE_HELMET": "Emerge helmet, Ella goggle",
     "ATHLETE_MOBILE": "Emerge helmet, Ella goggle",
     "FEATURED": false,
-    "ATHLETE_GRID_IMAGE": "Klaudia-Medlova.jpg?$staticlink$"
+    "ATHLETE_GRID_IMAGE": "Klaudia-Medlova.jpg"
   },
   {
     "ID": 35,
@@ -374,7 +374,7 @@
     "ATHLETE_HELMET": "Emerge helmet, Ella goggle",
     "ATHLETE_MOBILE": "Emerge helmet, Ella goggle",
     "FEATURED": false,
-    "ATHLETE_GRID_IMAGE": "Maddie-Mastro.jpg?$staticlink$"
+    "ATHLETE_GRID_IMAGE": "Maddie-Mastro.jpg"
   },
   {
     "ID": 36,
@@ -383,7 +383,7 @@
     "ATHLETE_HELMET": "Jackson helmet, Axis goggle",
     "ATHLETE_MOBILE": "Jackson helmet, Axis goggle",
     "FEATURED": false,
-    "ATHLETE_GRID_IMAGE": "Nils-Mindnich.jpg?$staticlink$"
+    "ATHLETE_GRID_IMAGE": "Nils-Mindnich.jpg"
   },
   {
     "ID": 37,
@@ -392,7 +392,7 @@
     "ATHLETE_HELMET": "Emerge helmet, Axis goggle",
     "ATHLETE_MOBILE": "Emerge helmet, Axis goggle",
     "FEATURED": false,
-    "ATHLETE_GRID_IMAGE": "Sammy-Luebbke.jpg?$staticlink$"
+    "ATHLETE_GRID_IMAGE": "Sammy-Luebbke.jpg"
   },
   {
     "ID": 38,
@@ -401,7 +401,7 @@
     "ATHLETE_HELMET": "Emerge hemlet, Contour goggle",
     "ATHLETE_MOBILE": "Emerge hemlet, Contour goggle",
     "FEATURED": false,
-    "ATHLETE_GRID_IMAGE": "Sebbe-De-Buck.jpg?$staticlink$"
+    "ATHLETE_GRID_IMAGE": "Sebbe-De-Buck.jpg"
   },
   {
     "ID": 39,
@@ -410,7 +410,7 @@
     "ATHLETE_HELMET": "Emerge helmet, Ella goggle",
     "ATHLETE_MOBILE": "Emerge helmet, Ella goggle",
     "FEATURED": false,
-    "ATHLETE_GRID_IMAGE": "Brita-Sigourney.jpg?$staticlink$"
+    "ATHLETE_GRID_IMAGE": "Brita-Sigourney.jpg"
   },
   {
     "ID": 40,
@@ -419,7 +419,7 @@
     "ATHLETE_HELMET": "Range helmet, Contour goggle",
     "ATHLETE_MOBILE": "Range helmet, Contour goggle",
     "FEATURED": false,
-    "ATHLETE_GRID_IMAGE": "Callum-Pettit.jpg?$staticlink$"
+    "ATHLETE_GRID_IMAGE": "Callum-Pettit.jpg"
   },
   {
     "ID": 41,
@@ -428,7 +428,7 @@
     "ATHLETE_HELMET": "Emerge helmet, Ella goggle",
     "ATHLETE_MOBILE": "Emerge helmet, Ella goggle",
     "FEATURED": false,
-    "ATHLETE_GRID_IMAGE": "Cassie-Sharpe.jpg?$staticlink$"
+    "ATHLETE_GRID_IMAGE": "Cassie-Sharpe.jpg"
   },
   {
     "ID": 42,
@@ -437,7 +437,7 @@
     "ATHLETE_HELMET": "Grid helmet, Contour goggle",
     "ATHLETE_MOBILE": "Grid helmet, Contour goggle",
     "FEATURED": false,
-    "ATHLETE_GRID_IMAGE": "Daron-Rahlves.jpg?$staticlink$"
+    "ATHLETE_GRID_IMAGE": "Daron-Rahlves.jpg"
   },
   {
     "ID": 43,
@@ -446,7 +446,7 @@
     "ATHLETE_HELMET": "Jackson helmet, Contour goggle",
     "ATHLETE_MOBILE": "Jackson helmet, Contour goggle",
     "FEATURED": false,
-    "ATHLETE_GRID_IMAGE": "Drew-Tabke.jpg?$staticlink$"
+    "ATHLETE_GRID_IMAGE": "Drew-Tabke.jpg"
   },
   {
     "ID": 44,
@@ -455,7 +455,7 @@
     "ATHLETE_HELMET": "Emerge helmet, Ella goggle",
     "ATHLETE_MOBILE": "Emerge helmet, Ella goggle",
     "FEATURED": false,
-    "ATHLETE_GRID_IMAGE": "Elena-Gaskell.jpg?$staticlink$"
+    "ATHLETE_GRID_IMAGE": "Elena-Gaskell.jpg"
   },
   {
     "ID": 45,
@@ -464,7 +464,7 @@
     "ATHLETE_HELMET": "Emerge helmet, Contour goggle",
     "ATHLETE_MOBILE": "Emerge helmet, Contour goggle",
     "FEATURED": false,
-    "ATHLETE_GRID_IMAGE": "Evan-Mceachran.jpg?$staticlink$"
+    "ATHLETE_GRID_IMAGE": "Evan-Mceachran.jpg"
   },
   {
     "ID": 46,
@@ -473,7 +473,7 @@
     "ATHLETE_HELMET": "Envi helmet, Ella goggle",
     "ATHLETE_MOBILE": "Envi helmet, Ella goggle",
     "FEATURED": false,
-    "ATHLETE_GRID_IMAGE": "Ingrid-Backstrom.jpg?$staticlink$"
+    "ATHLETE_GRID_IMAGE": "Ingrid-Backstrom.jpg"
   },
   {
     "ID": 47,
@@ -482,7 +482,7 @@
     "ATHLETE_HELMET": "Jackson helmet, Contour goggle",
     "ATHLETE_MOBILE": "Jackson helmet, Contour goggle",
     "FEATURED": false,
-    "ATHLETE_GRID_IMAGE": "Max-Palm.jpg?$staticlink$"
+    "ATHLETE_GRID_IMAGE": "Max-Palm.jpg"
   },
   {
     "ID": 48,
@@ -491,7 +491,7 @@
     "ATHLETE_HELMET": "Emerge helmet, Contour goggle",
     "ATHLETE_MOBILE": "Emerge helmet, Contour goggle",
     "FEATURED": false,
-    "ATHLETE_GRID_IMAGE": "Nico-Porteous.jpg?$staticlink$"
+    "ATHLETE_GRID_IMAGE": "Nico-Porteous.jpg"
   },
   {
     "ID": 49,
@@ -500,7 +500,7 @@
     "ATHLETE_HELMET": "Grid helmet, Countour goggle",
     "ATHLETE_MOBILE": "Grid helmet, Countour goggle",
     "FEATURED": false,
-    "ATHLETE_GRID_IMAGE": "Reine-Barkered.jpg?$staticlink$"
+    "ATHLETE_GRID_IMAGE": "Reine-Barkered.jpg"
   },
   {
     "ID": 50,
@@ -509,7 +509,7 @@
     "ATHLETE_HELMET": "Grid helmet, Countour goggle",
     "ATHLETE_MOBILE": "Grid helmet, Countour goggle",
     "FEATURED": false,
-    "ATHLETE_GRID_IMAGE": "Sam-Smoothy.jpg?$staticlink$"
+    "ATHLETE_GRID_IMAGE": "Sam-Smoothy.jpg"
   },
   {
     "ID": 51,
@@ -518,7 +518,7 @@
     "ATHLETE_HELMET": "Jackson helmet, Contour goggle",
     "ATHLETE_MOBILE": "Jackson helmet, Contour goggle",
     "FEATURED": false,
-    "ATHLETE_GRID_IMAGE": "Thibaut-Magnin.jpg?$staticlink$"
+    "ATHLETE_GRID_IMAGE": "Thibaut-Magnin.jpg"
   },
   {
     "ID": 52,
@@ -527,7 +527,7 @@
     "ATHLETE_HELMET": "Emerge helmet, Contour goggle",
     "ATHLETE_MOBILE": "Emerge helmet, Contour goggle",
     "FEATURED": false,
-    "ATHLETE_GRID_IMAGE": "Torin-Yater-Wallace.jpg?$staticlink$"
+    "ATHLETE_GRID_IMAGE": "Torin-Yater-Wallace.jpg"
   },
   {
     "ID": 53,
@@ -536,7 +536,7 @@
     "ATHLETE_HELMET": "Emerge HELMET, Avance HELMET, Blok GOGGLE",
     "ATHLETE_MOBILE": "Emerge HELMET, Avance HELMET, Blok GOGGLE",
     "FEATURED": false,
-    "ATHLETE_GRID_IMAGE": "Daniel-Yule.jpg?$staticlink$"
+    "ATHLETE_GRID_IMAGE": "Daniel-Yule.jpg"
   },
   {
     "ID": 54,
@@ -545,7 +545,7 @@
     "ATHLETE_HELMET": "Avance helmet, Contour goggle",
     "ATHLETE_MOBILE": "Avance helmet, Contour goggle",
     "FEATURED": false,
-    "ATHLETE_GRID_IMAGE": "Gino-Caviezel.jpg?$staticlink$"
+    "ATHLETE_GRID_IMAGE": "Gino-Caviezel.jpg"
   },
   {
     "ID": 55,
@@ -554,7 +554,7 @@
     "ATHLETE_HELMET": "Avance HELMET, Ledge SL HELMET, Contour GOGGLE",
     "ATHLETE_MOBILE": "Avance HELMET",
     "FEATURED": false,
-    "ATHLETE_GRID_IMAGE": "Luke-Winters.jpg?$staticlink$"
+    "ATHLETE_GRID_IMAGE": "Luke-Winters.jpg"
   },
   {
     "ID": 56,
@@ -563,7 +563,7 @@
     "ATHLETE_HELMET": "Avance HELMET, Ledge SL HELMET, Contour GOGGLE, ELLA GOGGLE",
     "ATHLETE_MOBILE": "Avance HELMET",
     "FEATURED": false,
-    "ATHLETE_GRID_IMAGE": "Nina-OBrien.jpg?$staticlink$"
+    "ATHLETE_GRID_IMAGE": "Nina-OBrien.jpg"
   },
   {
     "ID": 57,
@@ -572,7 +572,7 @@
     "ATHLETE_HELMET": "Avance HELMET, Ledge SL HELMET, Contour GOGGLE",
     "ATHLETE_MOBILE": "Avance HELMET",
     "FEATURED": false,
-    "ATHLETE_GRID_IMAGE": "Thomas-Tumler.jpg?$staticlink$"
+    "ATHLETE_GRID_IMAGE": "Thomas-Tumler.jpg"
   },
   {
     "ID": 58,
@@ -581,6 +581,6 @@
     "ATHLETE_HELMET": "Avance HELMET, Contour GOGGLE",
     "ATHLETE_MOBILE": "Avance HELMET, Contour GOGGLE",
     "FEATURED": false,
-    "ATHLETE_GRID_IMAGE": "Urs-Kryenbuhl.jpg?$staticlink$"
+    "ATHLETE_GRID_IMAGE": "Urs-Kryenbuhl.jpg"
   }
 ]
