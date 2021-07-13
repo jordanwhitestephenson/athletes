@@ -96,14 +96,14 @@
                                             <!-- <img :src="require(`@/xxx/${name}.png`)" alt class="icon" /> -->
                                             <!-- //Referencing the image with full URL -->
                                             <!-- <img :src="require(images/landing-pages/USA-Track-Team.jpg$?$staticlink$)"/> -->
-                                            <img :src="require(images/landing-pages/USA-Track-Team.jpg)"/>
+                                            <!-- <img :src="require(images/landing-pages/USA-Track-Team.jpg)"/> -->
 
                                             <!-- Referencing with the name and static link without directory -->
-                                            <!-- <img :src="require(`images/landing-pages/${'Groupama-FDJ.jpg$?$staticlink$'}`)"/> -->
+                                            <img :src="'images/landing-pages' + item.ATHLETE_GRID_IMAGE"/>
 
                                             <!-- <img v-bind:src=' "require(images/landing-pages/" + item.ATHLETE_GRID_IMAGE + "?$staticlink$)"' />  -->
-
-                                            <!-- <img :class="item.FEATURED ? 'hoverathlete athelte-grid-photo img-responsive' : 'athelte-grid-photo img-responsive'"
+<!-- 
+                                            <img :class="item.FEATURED ? 'hoverathlete athelte-grid-photo img-responsive' : 'athelte-grid-photo img-responsive'"
                                                 :src="'https://jordanwhitestephenson.github.io/athletes/images/' + item.ATHLETE_GRID_IMAGE"
                                                 alt=""> -->
                                             <h2 class="athlete-name">{{item.ATHLETE_NAME_HEADLIME}}</h2>
