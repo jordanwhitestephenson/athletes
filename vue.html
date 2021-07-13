@@ -93,9 +93,13 @@
                                     :class="getMobile ? 'col-6' : 'col-3'">
                                     <transition name="fade" mode="out-in">
                                         <div :key="item" v-bind:id="item.ID" v-on:click="selectModal(item.ID, i)">
-                                            require(`../assets/profile_screens/${filename}`) 
-                                            <img :src="require(`images/landing-pages/${item.ATHLETE_GRID_IMAGE}`)" alt class="icon" />
-                                            <img :src="item.ATHLETE_GRID_IMAGE"/>
+                                            <!-- <img :src="require(`@/xxx/${name}.png`)" alt class="icon" /> -->
+                                            <!-- //Referencing the image with full URL -->
+                                            <!-- <img :src="require(images/landing-pages/USA-Track-Team.jpg$?$staticlink$)"/> -->
+                                            <img :src="require(images/landing-pages/USA-Track-Team.jpg)"/>
+
+                                            <!-- Referencing with the name and static link without directory -->
+                                            <!-- <img :src="require(`images/landing-pages/${'Groupama-FDJ.jpg$?$staticlink$'}`)"/> -->
 
                                             <!-- <img v-bind:src=' "require(images/landing-pages/" + item.ATHLETE_GRID_IMAGE + "?$staticlink$)"' />  -->
 
