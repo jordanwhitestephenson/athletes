@@ -1,3 +1,7 @@
+//To add a new athlete 
+
+
+
 <body>
     <header>
     </header>
@@ -5,11 +9,14 @@
         <main class="athlete-page-master-parent">
             <section class="top-hero-category-above-tabs-container">
                 <div class="category-youtube-hero-container">
-                    <transition name="fade" mode="out-in">
-                        <video :src="selectedVideo" width="100%" id="vidsplash"  :key="selectedVideo"
-                            playsinline autoplay muted loop class="w-100">
-                    </transition>
+                    <div v-if="!isMobile">
+                        <transition name="fade" mode="out-in">
+                            <video :src="selectedVideo" width="100%" id="vidsplash" :key="selectedVideo" playsinline
+                                autoplay muted loop class="w-100">
+                        </transition>
+                    </div>
 
+                    <img v-else :src="selectedCatMobile" alt="Giro Team" />
 
                     </video>
                 </div>
@@ -32,7 +39,7 @@
                     </div>
                 </div>
             </section>
-            <section class="filter-by container d-flex justify-content-between dropdown align-items-center">
+            <section class="filter-by container d-flex justify-content-between dropdown align-items-center padding-left-right-0-desktop">
                 <button type="button"
                     :class="getMobile ? 'btn btn-filter filter-results filter-by-button'  : 'filter-by-button' "
                     data-toggle="modal" @click="showModalClick" data-target="#exampleModalCenter">
@@ -80,7 +87,7 @@
 
             </section>
             <div>
-                <div class="container">
+                <div class="container padding-left-right-0-desktop">
                     <h6 class="active-category-headline">{{activeCategoryHeadline}}</h6>
                 </div>
 
@@ -88,12 +95,12 @@
                     <div v-if="athletes" class="athlete-container d-flex w-100 flex-wrap">
 
                         <div v-for="(i, index) in Math.ceil(getAthletes.length / mobileCount)" :key="i" class="w-100">
-                            <div class="d-flex flex-wrap container padding-left-right-0-desktop">
+                            <div class="d-flex flex-wrap container padding-left-right-0-desktop-2">
                                 <div v-for="item in getAthletes.slice((i - 1) * mobileCount, i * mobileCount)"
                                     :class="getMobile ? 'col-6' : 'col-3'">
                                     <transition name="fade" mode="out-in">
                                         <div :key="item" v-bind:id="item.ID" v-on:click="selectModal(item.ID, i)">
-                                        <div class = "TYAAA" v-html="getExampleSRC(item.ID)"></div>
+                                            <div class="TYAAA" v-html="getExampleSRC(item.ID)"></div>
                                             <h2 class="athlete-name">{{item.ATHLETE_NAME_HEADLIME}}</h2>
                                             <p class="athlete-subhead">
                                                 {{getMobile ? item.ATHLETE_MOBILE : item.ATHLETE_HELMET}}</p>
@@ -131,7 +138,7 @@
                                                 <label>
                                                     INSTAGRAM HANDLE:
                                                 </label>
-                                                <a class="instagram-handle"
+                                                <a class="instagram-handle" target="_blank"
                                                     v-bind:href="selectedAthleteComputed.INSTAGRAMHREF">
                                                     {{selectedAthleteComputed.INSTAGRAM}}
                                                 </a>
@@ -193,6 +200,10 @@
     </section>
 </body>
 <style>
+    #events {
+        overflow: hidden;
+    }
+
     .modal-show-container {
         background-color: #f1f1f1;
         margin-bottom: 20px;
@@ -223,7 +234,7 @@
     .fade-enter-active,
     .fade-leave-active {
         transition: all 0.5s ease;
-        
+
     }
 
     .fade-enter-from,
@@ -338,7 +349,7 @@
     }
 
     /* //MOBILE// */
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 480px) {
         .athlete-name-and-para h3 {
             font-size: 32px !important;
             line-height: 45.6px !important;
@@ -449,17 +460,20 @@
     }
 
     /* DESKTOP */
-    @media screen and (min-width: 769px) {
+    @media screen and (min-width: 481px) {
         .youtube-iframe {
             height: 723px;
             width: 100%;
         }
 
         .padding-left-right-0-desktop {
-            padding-left: 0 !important;
-            padding-right: 0 !important;
+            padding-left: 40px !important;
+            padding-right: 40px !important;
         }
-
+        .padding-left-right-0-desktop-2 {
+            padding-left: 30px !important;
+            padding-right: 30px !important;
+        }
         .athlete-name {
             margin-top: 0 !important;
             padding-top: 16px;
@@ -503,7 +517,8 @@
         }
 
         .category-description-container {
-            max-width: 900px !important;
+            padding-left: 40px;
+            padding-right: 40px;
             padding-bottom: 100px;
         }
 
@@ -568,6 +583,15 @@
 
         }
     }
+    @media screen and (min-width: 1200px) {
+        .category-description-container {
+            max-width: 900px !important;
+            padding-bottom: 100px;
+            padding-left: 0px;
+            padding-right: 0px;
+        }
+
+     }
 </style>
 <script src="https://unpkg.com/vue@next"></script>
 
@@ -576,7 +600,7 @@
 
     const app = Vue.createApp({
         created() {
-            if (window.matchMedia("(max-width: 768px)").matches) {
+            if (window.matchMedia("(max-width: 480px)").matches) {
                 this.isMobile = true
                 this.mobileCount = 2
             }
@@ -606,7 +630,7 @@
             getAthletes() {
                 return this.athletes
             },
-    
+
             selectedAthleteComputed() {
                 return this.selectedAthlete
             },
@@ -653,9 +677,10 @@
                 activeCategory: "",
                 selectedAthlete: "",
                 originalAthleteArray: [],
-                selectedVideo: "",
+                selectedVideo: "https://wp.giro.com/wp-content/uploads/2021/03/Giro_Flashpoint_LandingPage_web_032921.mp4",
                 selectedIndex: "",
                 loaded: true,
+                selectedCatMobile: "images/landing-pages/athlete-page-mobile-ski-banner.jpg?$staticlink$",
                 rows: [],
                 videoPlay: false,
                 youtubeID: "",
@@ -707,38 +732,48 @@
                     this.athletes = this.originalAthleteArray.filter(type => type.TYPE === "Road-Cycling").sort((a, b) => a.ATHLETE_NAME_HEADLIME < b.ATHLETE_NAME_HEADLIME ? -1 : 1)
                     this.selectedVideo = this.videoLoops.ROADCYCLING_VIDEO_LOOP
                     this.activeCategoryHeadline = "Road Cycling Athletes"
+                    this.selectedCatMobile = ""
+                    this.selectedCatMobile = "images/landing-pages/athlete-page-mobile-ski-banner.jpg?$staticlink$"
                 }
                 if (this.activeCategory === "Mountain-Bike") {
                     this.athletes = this.originalAthleteArray.filter(type => type.TYPE === "Mountain-Bike").sort((a, b) => a.ATHLETE_NAME_HEADLIME < b.ATHLETE_NAME_HEADLIME ? -1 : 1)
                     this.selectedVideo = this.videoLoops.MOUNTAINBIKE_VIDEO_LOOP
                     this.activeCategoryHeadline = "MOUNTAIN BIKE ATHLETES"
+                    this.selectedCatMobile = "images/landing-pages/athlete-page-mobile-ski-banner.jpg?$staticlink$"
                 }
                 if (this.activeCategory === "GRAVEL") {
                     this.athletes = this.originalAthleteArray.filter(type => type.TYPE === "GRAVEL").sort((a, b) => a.ATHLETE_NAME_HEADLIME < b.ATHLETE_NAME_HEADLIME ? -1 : 1)
                     this.selectedVideo = this.videoLoops.GRAVEL_VIDEO_LOOP
                     this.activeCategoryHeadline = "GRAVEL ATHLETES"
+                    this.selectedCatMobile = "images/landing-pages/athlete-page-mobile-ski-banner.jpg?$staticlink$"
                 }
                 if (this.activeCategory === "CYLOCROSS") {
                     this.athletes = this.originalAthleteArray.filter(type => type.TYPE === "CYLOCROSS").sort((a, b) => a.ATHLETE_NAME_HEADLIME < b.ATHLETE_NAME_HEADLIME ? -1 : 1)
                     this.selectedVideo = this.videoLoops.CYCLOCROSS_VIDEO_LOOP
                     this.activeCategoryHeadline = "CYCLOCROSS ATHLETES"
+                    this.selectedCatMobile = "images/landing-pages/athlete-page-mobile-ski-banner.jpg?$staticlink$"
 
                 }
                 if (this.activeCategory === "SNOWBOARD") {
                     this.athletes = this.originalAthleteArray.filter(type => type.TYPE === "SNOWBOARD").sort((a, b) => a.ATHLETE_NAME_HEADLIME < b.ATHLETE_NAME_HEADLIME ? -1 : 1)
                     this.selectedVideo = this.videoLoops.SNOWBOARD_VIDEO_LOOP
                     this.activeCategoryHeadline = "SNOWBOARD TEAM"
+                    this.selectedCatMobile = "images/landing-pages/athlete-page-mobile-snowboard-banner.jpg?$staticlink$"
                 }
                 if (this.activeCategory === "SKI") {
                     this.athletes = this.originalAthleteArray.filter(type => type.TYPE === "SKI").sort((a, b) => a.ATHLETE_NAME_HEADLIME < b.ATHLETE_NAME_HEADLIME ? -1 : 1)
                     this.selectedVideo = this.videoLoops.SKI_VIDEO_LOOP
                     this.activeCategoryHeadline = "SKI TEAM"
+                    this.selectedCatMobile = "images/landing-pages/athlete-page-mobile-ski-banner.jpg?$staticlink$"
+
                 }
                 if (this.activeCategory === "ALPINE") {
                     this.athletes = this.originalAthleteArray.filter(type => type.TYPE === "ALPINE").sort((a, b) => a.ATHLETE_NAME_HEADLIME < b.ATHLETE_NAME_HEADLIME ? -1 : 1)
                     this.selectedVideo = this.videoLoops.ALPINE_VIDEO_LOOP
                     this.activeCategoryHeadline = "ALPINE RACE TEAM"
+                    this.selectedCatMobile = "images/landing-pages/athlete-page-mobile-ski-banner.jpg?$staticlink$"
                 }
+
             }
         }
     });
