@@ -7,28 +7,121 @@
 </head>
 
 <body>
-    <form id="add-athlete-form">
+    <form id="add-athlete-form" class="container">
+        <h2>Add Athlete</h2>
         <div class="form-group">
-            <label for="cars">Choose a athlete type:</label>
-            <select name="athlete-type" id="athlete-type">
-                <option value="Road-Cycling">Road-Cycling</option>
-                <option value="Mountain-Bike">Mountain-Bike</option>
-                <option value="GRAVEL">GRAVEL</option>
-                <option value="CYLOCROSS">CYLOCROSS</option>
-                <option value="SNOWBOARD">SNOWBOARD</option>
-                <option value="SKI">SKI</option>
-                <option value="ALPINE">ALPINE</option>
+            <label for="TYPE">Choose a athlete type:</label>
+
+
+            <select name="TYPE" id="TYPE">
+                <option :value="Road-Cycling">Road-Cycling</option>
+                <option :value="Mountain-Bike">Mountain-Bike</option>
+                <option :value="GRAVEL">GRAVEL</option>
+                <option :value="CYLOCROSS">CYLOCROSS</option>
+                <option :value="SNOWBOARD">SNOWBOARD</option>
+                <option :value="SKI">SKI</option>
+                <option :value="ALPINE">ALPINE</option>
             </select>
         </div>
         <div class="form-group">
-            <label for="ATHLETE_NAME_HEADLIME">Athelete Name</label>
-            <input type="" class="form-control" id="ATHLETE_NAME_HEADLIME" placeholder="">
+            <label for="ATHLETE_NAME_HEADLIME">Athlete Name</label>
+            <input required type="" class="form-control" v-bind:="ATHLETE_NAME_HEADLIME" placeholder="">
+        </div>
+        <div class="form-group">
+            <label for="ATHLETE_NAME_HEADLIME">Athlete Name</label>
+            <input type="" class="form-control" v-bind:="ATHLETE_NAME_HEADLIME" required placeholder="">
+        </div>
+        <div class="form-group">
+            <label for="ATHLETE_HELMET">Athlete Helmets (Desktop Showing)</label>
+            <input type="" class="form-control" v-bind:="ATHLETE_HELMET" required placeholder="">
+        </div>
+        <div class="form-group">
+            <label for="ATHLETE_MOBILE">Athlete Helmets (Mobile Showing)</label>
+            <input type="" class="form-control" v-bind:="ATHLETE_MOBILE" required placeholder="">
         </div>
         <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            <input type="checkbox" @input="makeAthleteFeatured(item)" class="form-check-input" v-bind:="FEATURED" required>
+            <label class="form-check-label" for="FEATURED">Featured Athlete?</label>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" v-bind:="ATHLETE_GRID_IMAGE" required>
+            <label class="form-check-label" for="ATHLETE_GRID_IMAGE">Athlete Grid Image - Will need to upload this image
+                to SFCC's 'images/landing-pages folder</label>
+            <small id="passwordHelpInline" class="text-muted">
+                Example : Thibaut-Magnin.jpg
+            </small>
+        </div>
+        <div v-if="trueFeaturedAthlete">
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" v-bind:="MODAL_ATHLETE_PARAGRAPH" required>
+                <label class="form-check-label" for="MODAL_ATHLETE_PARAGRAPH">Featured Athlete Paragraph text</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" v-bind:="MODAL_ATHELETE_HOMETOWN" required>
+                <label class="form-check-label" for="MODAL_ATHELETE_HOMETOWN">Athelete's hometown</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" v-bind:="INSTAGRAM" required>
+                <label class="form-check-label" for="INSTAGRAM">Athelete's Instagram handle</label>
+                <small id="passwordHelpInline" class="text-muted">
+                    Example : @tonio_ratley
+                </small>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" v-bind:="INSTAGRAMHREF" required>
+                <label class="form-check-label" for="INSTAGRAMHREF">Link to Athlete's Instagram</label>
+                <small id="passwordHelpInline" class="text-muted">
+                    Example : https://www.instagram.com/tonio_ratley/
+                </small>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" v-bind:="ICECREAM" required>
+                <label class="form-check-label" for="ICECREAM">Athlete's Favorite Icecream</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" v-bind:="YOUTUBEIMAGE" required>
+                <label class="form-check-label" for="YOUTUBEIMAGE">Default Youtube Image</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" v-bind:="YOUTUBE" required>
+                <label class="form-check-label" for="YOUTUBE">Youtube Embed ID</label>
+                <small id="passwordHelpInline" class="text-muted">
+                    Example : InwjlhS0JmI
+                </small>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" v-bind:="YOUTUBELABEL" required>
+                <label class="form-check-label" for="YOUTUBELABEL">Youtube Label</label>
+                <small id="passwordHelpInline" class="text-muted">
+                    Example :Distant Relatives - 50to01 Visits Barcelona
+                </small>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" v-bind:="MODALGRIDIMAGE1" required>
+                <label class="form-check-label" for="MODALGRIDIMAGE1">1st Featured Image</label>
+                <small id="passwordHelpInline" class="text-muted">
+                    Example : Josh-Bryceland-Feature-Image-1.jpg - image will need to be uploaded in SFCC's
+                    'images/landing-pages' folder
+                </small>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" v-bind:="MODALGRIDIMAGE2" required>
+                <label class="form-check-label" for="MODALGRIDIMAGE2">2nd Featured Image</label>
+                <small id="passwordHelpInline" class="text-muted">
+                    Example : Josh-Bryceland-Feature-Image-1.jpg - image will need to be uploaded in SFCC's
+                    'images/landing-pages' folder
+                </small>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" v-bind:="MODALGRIDIMAGE3" required>
+                <label class="form-check-label" for="MODALGRIDIMAGE3">3nd Featured Image</label>
+                <small id="passwordHelpInline" class="text-muted">
+                    Example : Josh-Bryceland-Feature-Image-1.jpg - image will need to be uploaded in SFCC's
+                    'images/landing-pages' folder
+                </small>
+            </div>
+        </div>
+        <button type="submit" @submit="getFormData" class="btn btn-primary">Submit</button>
     </form>
 </body>
 
@@ -55,14 +148,37 @@
 
         data() {
             return {
-                exampleSRC: "images/landing-pages/Nehemiah-Brown.jpg?$staticlink$",
-
-
-
+                trueFeaturedAthlete: false,
+                TYPE: "",
+                ATHLETE_NAME_HEADLIME: "",
+                ATHLETE_HELMET: "",
+                ATHLETE_MOBILE: "",
+                FEATURED: false,
+                ATHLETE_GRID_IMAGE: "",
+                MODAL_ATHLETE_PARAGRAPH: "",
+                MODAL_ATHELETE_HOMETOWN: "",
+                INSTAGRAM: "@",
+                INSTAGRAMHREF: "",
+                ICECREAM: "",
+                YOUTUBEIMAGE: "",
+                YOUTUBEDEFAULTID: "",
+                YOUTUBEID: "",
+                YOUTUBE: "",
+                YOUTUBELABEL: "",
+                MODALGRIDIMAGE1: "",
+                MODALGRIDIMAGE2: "",
+                MODALGRIDIMAGE3: ""
             };
         },
 
         methods: {
+            makeAthleteFeatured(item) {
+                console.log(item, 'makeAthelet')
+                this.trueFeaturedAthlete = true
+            },
+            getFormData() {
+
+            }
         }
     });
 
