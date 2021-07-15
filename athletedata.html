@@ -40,7 +40,7 @@
             <input type="" class="form-control" v-bind:="ATHLETE_MOBILE" required placeholder="">
         </div>
         <div class="form-check">
-            <input type="checkbox" @input="makeAthleteFeatured()" class="form-check-input" v-bind:="FEATURED" required>
+            <input type="checkbox" @input="makeAthleteFeatured" class="form-check-input" v-bind:="FEATURED" required>
             <label class="form-check-label" for="FEATURED">Featured Athlete?</label>
         </div>
         <div class="form-check">
@@ -51,7 +51,7 @@
                 Example : Thibaut-Magnin.jpg
             </small>
         </div>
-        <div v-if="trueFeaturedAthlete">
+        <div v-if="FEATURED">
             <div class="form-check">
                 <input type="checkbox" class="form-check-input" v-bind:="MODAL_ATHLETE_PARAGRAPH" required>
                 <label class="form-check-label" for="MODAL_ATHLETE_PARAGRAPH">Featured Athlete Paragraph text</label>
@@ -148,7 +148,7 @@
 
         data() {
             return {
-                trueFeaturedAthlete: false,
+
                 TYPE: "",
                 ATHLETE_NAME_HEADLIME: "",
                 ATHLETE_HELMET: "",
@@ -172,9 +172,9 @@
         },
 
         methods: {
-            makeAthleteFeatured() {
+            makeAthleteFeatured(e) {
                 console.log(e.target, 'makeAthelet')
-                this.trueFeaturedAthlete = true
+                this.FEATURED = true
             },
             getFormData() {
 
